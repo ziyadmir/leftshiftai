@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex AI - Enterprise AI Solutions That Actually Work</title>
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #666666;
+            --accent: #4a9eff;
+            --accent-hover: #3a8eef;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(90deg, #4a9eff 0%, #00d4ff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.625rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            background: radial-gradient(ellipse at top, rgba(74, 158, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.375rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(74, 158, 255, 0.3);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .secondary-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Case Study Section */
+        .case-study {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 6rem 0;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .case-study-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .case-study-badge {
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        .case-study-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .result-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .result-metric {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-title {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .result-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Solutions Grid */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .solution-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .solution-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.375rem;
+            font-weight: 600;
+        }
+
+        .solution-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-features li {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .solution-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* Founders Section */
+        .founders {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .founder-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 3px solid var(--border);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .founder-name {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .founder-role {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .founder-bio {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .linkedin-link {
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .linkedin-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(3px);
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 6rem 0;
+            padding: 3rem;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Expertise Section */
+        .expertise-section {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 6rem 0;
+            border: 1px solid var(--border);
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .expertise-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.75rem;
+            border: 1px solid var(--border);
+        }
+
+        .expertise-item h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .expertise-item p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            padding: 5rem 4rem;
+            text-align: center;
+            margin-top: 6rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .nav-links a:not(.cta-button) {
+                display: none;
+            }
+            
+            h1 {
+                font-size: clamp(2.5rem, 8vw, 3.5rem);
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .case-study {
+                padding: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .founders {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                padding: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glow effects */
+        .glow {
+            position: relative;
+        }
+
+        .glow::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .glow:hover::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-gradient">Apex AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="#solutions">Solutions</a>
+                <a href="#results">Results</a>
+                <a href="#team">Team</a>
+                <a href="#contact" class="cta-button">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in-up">
+            <div class="tag">Proven AI Solutions at Scale</div>
+            <h1>Navigate the <span class="gradient-text">AI Maze</span><br>With Confidence</h1>
+            <p class="hero-subtitle">The AI engineering landscape is vast and complex. We've spent the last 2 years mapping it, implementing it, and perfecting it for 2000+ developers.</p>
+            <p class="hero-description">We know what works, what doesn't, and exactly how to transform your engineering organization with AI that delivers measurable results—not just promises.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="primary-button">
+                    Book Strategy Session
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14m-7-7l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#results" class="secondary-button">See Our Results</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section -->
+    <section id="results">
+        <div class="case-study fade-in-up">
+            <div class="case-study-header">
+                <span class="case-study-badge">CASE STUDY</span>
+                <h3 class="case-study-title">Fortune 100 Company • 2,000+ Developers</h3>
+            </div>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-metric">40%</div>
+                    <h4 class="result-title">Increase in PR Throughput</h4>
+                    <p class="result-description">Achieved in just 2 months through intelligent code review automation and AI-powered development workflows</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-metric">70%</div>
+                    <h4 class="result-title">Reduction in MTTR</h4>
+                    <p class="result-description">For operational incidents using AI-driven diagnostics and automated resolution pathways</p>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-metric">100%</div>
+                    <h4 class="result-title">Security Compliance</h4>
+                    <p class="result-description">Working directly with CISO-level teams to ensure air-gapped, auditable, and compliant AI implementations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions">
+        <div class="section-header">
+            <h2>Enterprise AI <span class="gradient-text">Solutions</span></h2>
+            <p class="section-subtitle">Every solution is vetted, benchmarked, and proven with clear metrics from existing deployments</p>
+        </div>
+        
+        <div class="solutions-grid">
+            <div class="solution-card glow">
+                <span class="solution-icon">🚀</span>
+                <h3>Coding Solutions</h3>
+                <p>Transform your development velocity with AI-powered coding assistants, automated testing, and intelligent code review systems.</p>
+                <ul class="solution-features">
+                    <li>40% increase in PR throughput</li>
+                    <li>Custom AI copilots for your stack</li>
+                    <li>Automated code quality enforcement</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card glow">
+                <span class="solution-icon">⚡</span>
+                <h3>Operational Excellence</h3>
+                <p>Minimize downtime and accelerate incident resolution with AI-driven operations and intelligent monitoring.</p>
+                <ul class="solution-features">
+                    <li>70% reduction in MTTR</li>
+                    <li>Predictive incident detection</li>
+                    <li>Automated root cause analysis</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card glow">
+                <span class="solution-icon">🔐</span>
+                <h3>Security & Compliance</h3>
+                <p>Enterprise-grade security with complete auditability, working directly with your CISO and security teams.</p>
+                <ul class="solution-features">
+                    <li>Air-gapped deployment options</li>
+                    <li>SOC 2 & ISO compliance</li>
+                    <li>Full audit trails & governance</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card glow">
+                <span class="solution-icon">🎨</span>
+                <h3>Design Intelligence</h3>
+                <p>Bridge the gap between design and development with AI-powered design systems and automated UI generation.</p>
+                <ul class="solution-features">
+                    <li>Design-to-code automation</li>
+                    <li>Consistent design systems</li>
+                    <li>Accessibility compliance</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card glow">
+                <span class="solution-icon">🔍</span>
+                <h3>Information Retrieval</h3>
+                <p>Transform your knowledge management with advanced RAG systems and intelligent search across all your data.</p>
+                <ul class="solution-features">
+                    <li>Enterprise knowledge graphs</li>
+                    <li>Multi-modal search capabilities</li>
+                    <li>Real-time data synchronization</li>
+                </ul>
+            </div>
+            
+            <div class="solution-card glow">
+                <span class="solution-icon">📊</span>
+                <h3>AI Benchmarking</h3>
+                <p>Measure and optimize your AI investments with comprehensive benchmarking and performance analytics.</p>
+                <ul class="solution-features">
+                    <li>Custom benchmark development</li>
+                    <li>ROI tracking & reporting</li>
+                    <li>Continuous optimization</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section>
+        <div class="stats fade-in-up">
+            <div class="stat">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Combined Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2000+</div>
+                <div class="stat-label">Developers Transformed</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Enterprise Deployments</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">10x</div>
+                <div class="stat-label">Average ROI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section fade-in-up">
+        <div class="section-header">
+            <h2>Why <span class="gradient-text">We're Different</span></h2>
+            <p class="section-subtitle">We've been in the trenches, building and scaling AI systems that actually work</p>
+        </div>
+        
+        <div class="expertise-grid">
+            <div class="expertise-item">
+                <div class="expertise-icon">🧭</div>
+                <h4>We Know the Maze</h4>
+                <p>Years of applied ML means we know exactly what works where and why</p>
+            </div>
+            
+            <div class="expertise-item">
+                <div class="expertise-icon">🎯</div>
+                <h4>Proven Results</h4>
+                <p>Every solution backed by real metrics from production deployments</p>
+            </div>
+            
+            <div class="expertise-item">
+                <div class="expertise-icon">🤝</div>
+                <h4>Elite Network</h4>
+                <p>Direct connections to top AI companies for exclusive pricing and access</p>
+            </div>
+            
+            <div class="expertise-item">
+                <div class="expertise-icon">⚙️</div>
+                <h4>Implementation Focus</h4>
+                <p>We don't just advise—we build, deploy, and optimize alongside your team</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="section-header">
+            <h2>Meet the <span class="gradient-text">Founders</span></h2>
+            <p class="section-subtitle">Industry veterans who've been building AI before it was mainstream</p>
+        </div>
+        
+        <div class="founders">
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="images/ziyad-headshot.png" alt="Ziyad Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 class="founder-name">Ziyad Mir</h3>
+                <p class="founder-role">Co-Founder & AI Architect</p>
+                <p class="founder-bio">
+                    Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
+                </p>
+                <a href="https://www.linkedin.com/in/ziyadmir" class="linkedin-link" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+            
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="images/amit-gaur-headshot.png" alt="Amit Gaur" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 class="founder-name">Amit Gaur</h3>
+                <p class="founder-role">Co-Founder & Engineering Leader</p>
+                <p class="founder-bio">
+                    Seasoned engineering executive with extensive experience building and scaling AI teams at Fortune 500 companies. Deep expertise in enterprise AI adoption, MLOps, and engineering excellence. Track record of delivering transformative AI solutions that drive measurable business impact.
+                </p>
+                <a href="https://www.linkedin.com/in/amitgaur" class="linkedin-link" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="images/hani-mir-headshot.png" alt="Hani Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                <h3 class="founder-name">Hani Mir</h3>
+                <p class="founder-role">Co-Founder & Technical Lead</p>
+                <p class="founder-bio">
+                    ML engineer previously at Character.AI, with experience at Jane Street and as former CTO/Co-founder of ELI5. Brings deep expertise in high-frequency trading systems, AI infrastructure, and building products from 0 to 1. Alumni of Google, Uber, LinkedIn, and Microsoft.
+                </p>
+                <a href="https://www.linkedin.com/in/hanimir" class="linkedin-link" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    Connect on LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Ready to <span class="gradient-text">Transform Your Engineering?</span></h2>
+        <p class="contact-subtitle">Let's discuss how we can help you navigate the AI maze and deliver results that matter</p>
+        <a href="mailto:ziyadmir@gmail.com" class="primary-button">
+            Schedule Your Strategy Session
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Apex AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(40px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('section, .solution-card, .result-card, .founder-card, .expertise-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
