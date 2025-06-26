@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LeftShift AI - Engagement Model</title>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B29283XX1D"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B29283XX1D');
+    </script>
     <style>
         :root {
             --bg-primary: #000000;
@@ -16,6 +26,7 @@
             --accent-hover: #3a8eef;
             --border: rgba(255, 255, 255, 0.08);
             --gradient-1: linear-gradient(90deg, #4a9eff 0%, #00d4ff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
         }
 
         * {
@@ -29,8 +40,12 @@
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -41,6 +56,12 @@
             z-index: 1000;
             padding: 1.25rem 0;
             border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.95);
         }
 
         .nav-container {
@@ -55,6 +76,7 @@
         .logo {
             font-size: 1.75rem;
             font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         .logo-gradient {
@@ -81,6 +103,10 @@
             color: var(--text-primary);
         }
 
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
         .cta-button {
             background: var(--accent);
             color: #ffffff !important;
@@ -93,121 +119,699 @@
             letter-spacing: 0.02em;
         }
 
-        main {
-            max-width: 800px;
-            margin: 6rem auto 4rem;
-            padding: 0 1rem;
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse at center, rgba(74, 158, 255, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .tag {
+            display: inline-block;
+            color: var(--accent);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
 
         h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.375rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+        }
+
+        /* Section Headers */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* List Styles */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .styled-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Metrics Table */
+        .metrics-table {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 158, 255, 0.3);
+        }
+
+        .metric-icon {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-        h2 {
-            margin-top: 2.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.5rem;
+        .metric-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
-        p, li {
+        .metric-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-description {
             color: var(--text-secondary);
-            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
         }
 
-        ul {
-            margin-left: 1.25rem;
+        /* Process Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.125rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 6px var(--border);
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            margin-top: 6rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .primary-button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(74, 158, 255, 0.3);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .secondary-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
+        /* Reference Links */
+        .reference-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .reference-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .reference-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links a:not(.cta-button):not(.active) {
+                display: none;
+            }
+
+            .hero {
+                padding: 8rem 1rem 3rem;
+            }
+
+            h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <nav>
+    <!-- Navigation -->
+    <nav id="navbar">
         <div class="nav-container">
-            <div class="logo"><span class="logo-gradient">LeftShift AI</span></div>
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-gradient">LeftShift AI</span>
+                </a>
+            </div>
             <div class="nav-links">
                 <a href="index.html#solutions">Solutions</a>
                 <a href="index.html#results">Results</a>
                 <a href="index.html#team">Team</a>
-                <a href="engagement-model.html">Engagement</a>
+                <a href="engagement-model.html" class="active">Engagement</a>
                 <a href="index.html#contact" class="cta-button">Get Started</a>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero fade-in-up">
+        <div class="tag">Enterprise AI Transformation</div>
+        <h1>Ship AI-Driven <span class="gradient-text">Productivity Wins</span><br>in Weeks—Not Quarters</h1>
+        <p class="hero-subtitle">Enable your engineering organization with battle-tested AI implementations from a founding team that's done it at scale.</p>
+    </section>
+
     <main>
-        <h1>Engagement Model</h1>
-        <p>This overview explains how we help engineering organizations adopt AI-driven workflows quickly.</p>
+        <!-- Who We Are -->
+        <section class="section fade-in-up">
+            <div class="section-number">1</div>
+            <h2>Who We Are</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Amit (GM), Ziyad & Hani (Principal Engineers)</strong> – led Coupang's internal "AI-for-Work" program</li>
+                    <li>Shipped enterprise-grade agents, tooling, and adoption playbooks for a <strong>2,500-engineer org</strong></li>
+                    <li><strong>15+ years each</strong> building and scaling software at FAANG-class companies</li>
+                </ul>
+                <div class="reference-links">
+                    <a href="https://ziyadmir.com/blog.html" class="reference-link" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Read Our Blog
+                    </a>
+                    <a href="https://ziyadmir.com/projects/coupang-ai-work.html" class="reference-link" target="_blank">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11H3v2h6v-2zm0-4H3v2h6V7zm0 8H3v2h6v-2zm12-4h-6v2h6v-2zm0-4h-6v2h6V7zm0 8h-6v2h6v-2z"/>
+                        </svg>
+                        Coupang AI Case Study
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <h2>Who We Are</h2>
-        <ul>
-            <li>Amit (GM), Ziyad &amp; Hani (Principal Engineers) – led Coupang’s internal “AI-for-Work” program.</li>
-            <li>Shipped enterprise-grade agents, tooling, and adoption playbooks for a 2,500-engineer org.</li>
-            <li>15+ years each building and scaling software at FAANG-class companies.</li>
-        </ul>
+        <!-- Why Enterprises Struggle -->
+        <section class="section fade-in-up">
+            <div class="section-number">2</div>
+            <h2>Why Enterprises Struggle</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Security & Compliance Friction</strong> – model access, data isolation, approval loops</li>
+                    <li><strong>Org Complexity</strong> – cross-team dependencies, shifting priorities, politics</li>
+                    <li><strong>Signal-to-Noise</strong> – thousands of shiny AI demos, few production-ready at scale</li>
+                </ul>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 59, 48, 0.05); border: 1px solid rgba(255, 59, 48, 0.2); border-radius: 12px;">
+                    <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0;">
+                        Result: pilot fatigue, stalled roll-outs, and wasted quarters relearning avoidable lessons.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-        <h2>Why Enterprises Struggle</h2>
-        <ul>
-            <li>Security &amp; Compliance Friction – model access, data isolation, approval loops.</li>
-            <li>Org Complexity – cross-team dependencies, shifting priorities, politics.</li>
-            <li>Signal-to-Noise – thousands of shiny AI demos, few production-ready at scale.</li>
-        </ul>
-        <p>Result: pilot fatigue, stalled roll-outs, and wasted quarters relearning avoidable lessons.</p>
+        <!-- Our Ideal Partner -->
+        <section class="section fade-in-up">
+            <div class="section-number">3</div>
+            <h2>Our Ideal Partner</h2>
+            <div class="content-card">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">Established tech company (≈ 500+ engineers) that is:</p>
+                <ul class="styled-list">
+                    <li>Eager for AI leverage yet <strong>constrained by enterprise realities</strong></li>
+                    <li>Lean enough to move quickly, <strong>large enough to feel the pain</strong></li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>Our Ideal Partner</h2>
-        <p>Established tech company (≈500+ engineers) that is:</p>
-        <ul>
-            <li>Eager for AI leverage yet constrained by enterprise realities.</li>
-            <li>Lean enough to move quickly, large enough to feel the pain.</li>
-        </ul>
+        <!-- 30-Day Outcomes -->
+        <section class="section fade-in-up">
+            <div class="section-number">4</div>
+            <h2>30-Day Outcomes</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">💻</div>
+                    <h3 class="metric-title">Coding & Code Review Automation</h3>
+                    <div class="metric-value">↑ 20-40%</div>
+                    <p class="metric-description">PRs per engineer</p>
+                    <div class="metric-value">↓ 30-40%</div>
+                    <p class="metric-description">Time-to-merge</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">⚡</div>
+                    <h3 class="metric-title">Incident Response/SRE Automation</h3>
+                    <div class="metric-value">↓ 20-40%</div>
+                    <p class="metric-description">Mean-Time-to-Resolve (MTTR)</p>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon">🛡️</div>
+                    <h3 class="metric-title">Self-Healing Runbooks & Guardrails</h3>
+                    <div class="metric-value">Fewer</div>
+                    <p class="metric-description">On-call pages, faster RCA closure</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>30-Day Outcomes</h2>
-        <ul>
-            <li><strong>Coding &amp; Code Review Automation:</strong> ↑20–40% PRs per engineer; ↓30–40% time-to-merge.</li>
-            <li><strong>Incident Response/SRE Automation:</strong> ↓20–40% Mean-Time-to-Resolve (MTTR).</li>
-            <li><strong>Self-Healing Runbooks &amp; Guardrails:</strong> Fewer on-call pages, faster RCA closure.</li>
-        </ul>
+        <!-- Engagement Model -->
+        <section class="section fade-in-up">
+            <div class="section-number">5</div>
+            <h2>Engagement Model <span class="badge">Process, not Price</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Discovery & Alignment</h3>
+                    <p class="timeline-description">Deep-dive on your top friction points</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">One-Month Pilot</h3>
+                    <p class="timeline-description">We embed one day per week, async the rest, and ship working solutions that move a headline metric</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Scale-Up</h3>
+                    <p class="timeline-description">Expand playbooks, toolchains, and change-management patterns once trust is earned</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>Engagement Model</h2>
-        <ol>
-            <li><strong>Discovery &amp; Alignment</strong> – deep-dive on your top friction points.</li>
-            <li><strong>One-Month Pilot</strong> – we embed one day per week, async the rest, and ship working solutions that move a headline metric.</li>
-            <li><strong>Scale-Up</strong> – expand playbooks, toolchains, and change-management patterns once trust is earned.</li>
-        </ol>
+        <!-- Operating Rhythm -->
+        <section class="section fade-in-up">
+            <div class="section-number">6</div>
+            <h2>Operating Rhythm</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Direct Line</strong> – Slack/phone with all founders</li>
+                    <li><strong>Hands-On Delivery</strong> – we write code, pair with your ICs, and coach exec stakeholders</li>
+                    <li><strong>Transparent Artifacts</strong> – weekly demo, KPI dashboard, and next-step backlog</li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>Operating Rhythm</h2>
-        <ul>
-            <li>Direct Line – Slack/phone with all founders.</li>
-            <li>Hands-On Delivery – we write code, pair with your ICs, and coach exec stakeholders.</li>
-            <li>Transparent Artifacts – weekly demo, KPI dashboard, and next-step backlog.</li>
-        </ul>
+        <!-- Proven Playbooks -->
+        <section class="section fade-in-up">
+            <div class="section-number">7</div>
+            <h2>Proven Playbooks We Bring</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li>Security review templates for frontier models</li>
+                    <li>OKR patterns to tie AI work to business value</li>
+                    <li>Pre-built agent workflows (LangChain, Devin-style, etc.) ready to customize</li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>Proven Playbooks We Bring</h2>
-        <ul>
-            <li>Security review templates for frontier models.</li>
-            <li>OKR patterns to tie AI work to business value.</li>
-            <li>Pre-built agent workflows (LangChain, Devin-style, etc.) ready to customize.</li>
-        </ul>
+        <!-- Reference Win -->
+        <section class="section fade-in-up">
+            <div class="section-number">8</div>
+            <h2>Reference Win <span class="gradient-text">(Coupang)</span></h2>
+            <div class="content-card" style="background: var(--bg-secondary);">
+                <ul class="styled-list">
+                    <li>25-person "AI guild" enabled across <strong>2,500 engineers</strong></li>
+                    <li><strong>40% lift</strong> in PR throughput and <strong>30% faster</strong> incident recovery within 90 days</li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>Reference Win (Coupang)</h2>
-        <ul>
-            <li>25-person “AI guild” enabled across 2,500 engineers.</li>
-            <li>40% lift in PR throughput and 30% faster incident recovery within 90 days.</li>
-        </ul>
+        <!-- Why Left Shift AI -->
+        <section class="section fade-in-up">
+            <div class="section-number">9</div>
+            <h2>Why <span class="gradient-text">Left Shift AI</span></h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Founders Only</strong> – no hand-offs to junior consultants</li>
+                    <li><strong>Deep Tech + Change Management</strong> – we solve both code and culture</li>
+                    <li><strong>Metric-First Mindset</strong> – value demonstrated in the first sprint</li>
+                </ul>
+            </div>
+        </section>
 
-        <h2>Why Left Shift AI</h2>
-        <ul>
-            <li>Founders Only – no hand-offs to junior consultants.</li>
-            <li>Deep Tech + Change Management – we solve both code and culture.</li>
-            <li>Metric-First Mindset – value demonstrated in the first sprint.</li>
-        </ul>
+        <!-- Next Steps -->
+        <section class="section fade-in-up">
+            <div class="section-number">10</div>
+            <h2>Next Steps</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Identify two high-leverage bottlenecks</h3>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Schedule a 60-min scoping call</h3>
+                    <p class="timeline-description">With Amit, Ziyad, and Hani</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Kick off the one-month pilot</h3>
+                    <p class="timeline-description">Start measuring impact immediately</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>Next Steps</h2>
-        <ol>
-            <li>Identify two high-leverage bottlenecks.</li>
-            <li>Schedule a 60-min scoping call with Amit, Ziyad, and Hani.</li>
-            <li>Kick off the one-month pilot and start measuring impact.</li>
-        </ol>
-        <p>Questions or a use-case in mind? – reach us at <a href="mailto:founders@leftshiftai.com">founders@leftshiftai.com</a>.</p>
+        <!-- CTA Section -->
+        <div class="cta-section fade-in-up">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to <span class="gradient-text">Transform Your Engineering?</span></h2>
+                <p class="cta-subtitle">Questions or a use-case in mind? Let's discuss how we can help.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:founders@leftshiftai.com" class="primary-button">
+                        Contact Us
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14m-7-7l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="index.html#contact" class="secondary-button">Schedule Call</a>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 LeftShift AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(40px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections and cards
+        document.querySelectorAll('.section, .cta-section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
