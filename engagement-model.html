@@ -757,6 +757,321 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Visual Timeline Styles */
+        .visual-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 3rem 0;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .visual-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            right: 2rem;
+            height: 4px;
+            background: var(--border);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .timeline-step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-card);
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step.active .timeline-step-icon {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+        }
+
+        .timeline-step-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-step-duration {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Comparison Chart */
+        .comparison-chart {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-side.traditional {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.05) 0%, rgba(255, 59, 48, 0.02) 100%);
+            border-color: rgba(255, 59, 48, 0.2);
+        }
+
+        .comparison-side.ai-native {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.05) 0%, rgba(74, 158, 255, 0.02) 100%);
+            border-color: rgba(74, 158, 255, 0.2);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-icon {
+            font-size: 2rem;
+        }
+
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .comparison-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .comparison-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .comparison-metric-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .comparison-metric-value {
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        /* Progress Indicators */
+        .progress-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .progress-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Visual ROI Calculator */
+        .roi-visual {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .roi-equation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .roi-term {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-width: 150px;
+        }
+
+        .roi-term-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-term-label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .roi-operator {
+            font-size: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Feature Icons Grid */
+        .feature-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-icon-item {
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-icon-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon-bubble {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-icon-item:hover .feature-icon-bubble {
+            background: var(--gradient-1);
+            transform: rotate(5deg);
+        }
+
+        .feature-icon-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .visual-timeline {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            .visual-timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                right: auto;
+                width: 4px;
+                height: auto;
+                transform: translateX(-50%);
+            }
+
+            .timeline-step {
+                margin-bottom: 2rem;
+            }
+
+            .comparison-chart {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-equation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .roi-operator {
+                transform: rotate(90deg);
+            }
+        }
     </style>
 </head>
 <body>
@@ -816,6 +1131,29 @@
     </section>
 
     <main>
+        <!-- Visual Timeline -->
+        <div class="visual-timeline fade-in-up">
+            <div class="timeline-step active">
+                <div class="timeline-step-icon">🔍</div>
+                <div class="timeline-step-title">Discovery</div>
+                <div class="timeline-step-duration">Week 1</div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-icon">🚀</div>
+                <div class="timeline-step-title">Pilot</div>
+                <div class="timeline-step-duration">Weeks 2-4</div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-icon">📈</div>
+                <div class="timeline-step-title">Measure</div>
+                <div class="timeline-step-duration">Week 4</div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-step-icon">⚡</div>
+                <div class="timeline-step-title">Scale</div>
+                <div class="timeline-step-duration">Month 2+</div>
+            </div>
+        </div>
         <!-- Who We Are -->
         <section class="section fade-in-up">
             <div class="section-number">1</div>
@@ -861,6 +1199,58 @@
             </div>
         </section>
 
+        <!-- Comparison Visual -->
+        <div class="comparison-chart fade-in-up">
+            <div class="comparison-side traditional">
+                <div class="comparison-header">
+                    <span class="comparison-icon">🏢</span>
+                    <h3 class="comparison-title">Traditional Scaling</h3>
+                </div>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Cost per Engineer</span>
+                        <span class="comparison-metric-value">$250K+/year</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Time to Productivity</span>
+                        <span class="comparison-metric-value">6+ months</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Capacity Increase</span>
+                        <span class="comparison-metric-value">+30%</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Total Cost Increase</span>
+                        <span class="comparison-metric-value">+30%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-side ai-native">
+                <div class="comparison-header">
+                    <span class="comparison-icon">🚀</span>
+                    <h3 class="comparison-title">AI-Native Scaling</h3>
+                </div>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Cost per Engineer</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">$12K/year</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Time to Productivity</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">30 days</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Capacity Increase</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">+50%</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Total Cost Increase</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">+10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Our Ideal Partner -->
         <section class="section fade-in-up">
             <div class="section-number">3</div>
@@ -880,6 +1270,32 @@
             </div>
         </section>
 
+        <!-- ROI Calculator Visual -->
+        <div class="roi-visual fade-in-up">
+            <h3 style="font-size: 1.75rem; margin-bottom: 1rem;">ROI Calculation for 100 Engineers</h3>
+            <div class="roi-equation">
+                <div class="roi-term">
+                    <div class="roi-term-value">100</div>
+                    <div class="roi-term-label">Engineers</div>
+                </div>
+                <div class="roi-operator">×</div>
+                <div class="roi-term">
+                    <div class="roi-term-value">40%</div>
+                    <div class="roi-term-label">Productivity Gain</div>
+                </div>
+                <div class="roi-operator">=</div>
+                <div class="roi-term">
+                    <div class="roi-term-value">40</div>
+                    <div class="roi-term-label">Effective Engineers</div>
+                </div>
+            </div>
+            <p style="font-size: 1.125rem; color: var(--text-secondary); margin-top: 2rem;">
+                <strong style="color: var(--text-primary);">Cost Savings:</strong> $10M in avoided hiring costs<br>
+                <strong style="color: var(--text-primary);">Investment:</strong> $1.2M in AI tools annually<br>
+                <strong style="color: var(--text-primary);">Net Savings:</strong> <span style="color: var(--accent); font-weight: 700;">$8.8M per year</span>
+            </p>
+        </div>
+
         <!-- 30-Day Outcomes -->
         <section class="section fade-in-up">
             <div class="section-number">4</div>
@@ -897,28 +1313,44 @@
         <section class="section fade-in-up">
             <div class="section-number">5</div>
             <h2>30-Day Productivity Gains</h2>
-            <div class="metrics-grid">
-                <div class="metric-card">
-                    <div class="metric-icon">💻</div>
-                    <h3 class="metric-title">Coding & Code Review Automation</h3>
-                    <div class="metric-value">↑ 20-40%</div>
-                    <p class="metric-description">PRs per engineer</p>
-                    <div class="metric-value">↓ 30-40%</div>
-                    <p class="metric-description">Time-to-merge</p>
+            
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">💻 PR Velocity Increase</span>
+                    <span class="progress-value">+40%</span>
                 </div>
-                
-                <div class="metric-card">
-                    <div class="metric-icon">⚡</div>
-                    <h3 class="metric-title">Incident Response/SRE Automation</h3>
-                    <div class="metric-value">↓ 20-40%</div>
-                    <p class="metric-description">Mean-Time-to-Resolve (MTTR)</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;"></div>
                 </div>
-                
-                <div class="metric-card">
-                    <div class="metric-icon">🛡️</div>
-                    <h3 class="metric-title">Self-Healing Runbooks & Guardrails</h3>
-                    <div class="metric-value">Fewer</div>
-                    <p class="metric-description">On-call pages, faster RCA closure</p>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">⏱️ Time-to-Merge Reduction</span>
+                    <span class="progress-value">-35%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">🚨 MTTR Improvement</span>
+                    <span class="progress-value">-30%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">🎯 Developer Satisfaction</span>
+                    <span class="progress-value">+85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%;"></div>
                 </div>
             </div>
         </section>
@@ -1023,7 +1455,35 @@
         <section class="section fade-in-up">
             <div class="section-number">12</div>
             <h2>Why <span class="gradient-text">Left Shift AI</span></h2>
-            <div class="content-card">
+            
+            <div class="feature-icons">
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">👥</div>
+                    <div class="feature-icon-label">Founders Only</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🧠</div>
+                    <div class="feature-icon-label">Deep Tech</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">📊</div>
+                    <div class="feature-icon-label">Metric-First</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🚀</div>
+                    <div class="feature-icon-label">Fast Results</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🛡️</div>
+                    <div class="feature-icon-label">Enterprise Ready</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🎯</div>
+                    <div class="feature-icon-label">ROI Focused</div>
+                </div>
+            </div>
+            
+            <div class="content-card" style="margin-top: 2rem;">
                 <ul class="styled-list">
                     <li><strong>Founders Only</strong> – no hand-offs to junior consultants</li>
                     <li><strong>Deep Tech + Change Management</strong> – we solve both code and culture</li>
