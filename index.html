@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeftShift AI - Scale OPEX, Not Headcount</title>
+    <title>LeftShift AI - Become AI-Native Fast</title>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B29283XX1D"></script>
@@ -178,6 +178,10 @@
             color: var(--text-primary);
         }
 
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
         .cta-button {
             background: var(--accent);
             color: #ffffff !important;
@@ -194,7 +198,6 @@
             background: var(--accent-hover);
             transform: translateY(-1px);
             box-shadow: 0 10px 30px rgba(74, 158, 255, 0.3);
-            color: #ffffff;
         }
 
         /* Hero Section */
@@ -213,6 +216,19 @@
             margin: 0 auto;
             text-align: center;
             z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse at center, rgba(74, 158, 255, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .tag {
@@ -242,25 +258,261 @@
         .hero-subtitle {
             font-size: 1.375rem;
             color: var(--text-secondary);
-            margin-bottom: 1rem;
             max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 3rem;
             line-height: 1.6;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
         }
 
         .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .secondary-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Section Headers */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Content Cards */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* List Styles */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .styled-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .styled-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .styled-list li strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Metrics Table */
+        .metrics-table {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            overflow-x: auto;
+            margin-bottom: 3rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .metric-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 158, 255, 0.3);
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .metric-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .metric-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Process Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.125rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--bg-primary), 0 0 0 6px var(--border);
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            margin-top: 6rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
@@ -305,100 +557,479 @@
             box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
         }
 
-        /* Section Styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+        /* Reference Links */
+        .reference-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
-        .section-header {
+        .reference-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .reference-link:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
             text-align: center;
-            margin-bottom: 4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
         }
 
-        h2 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            font-weight: 700;
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            /* Navigation */
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+            
+            .hero::before {
+                width: 400px;
+                height: 400px;
+            }
+
+            h1 {
+                font-size: clamp(1.75rem, 6vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* Main Content */
+            main {
+                padding: 0 1rem 4rem;
+            }
+            
+            /* Sections */
+            .section {
+                padding: 2rem 1rem;
+            }
+            
+            .section-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.875rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+                margin-bottom: 1rem;
+            }
+
+            /* Content Cards */
+            .content-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Lists */
+            .styled-list li {
+                font-size: 0.9375rem;
+                padding-left: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            /* Metrics Grid */
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .metric-card {
+                padding: 1.5rem;
+            }
+            
+            .metric-icon {
+                font-size: 2rem;
+            }
+            
+            .metric-value {
+                font-size: 1.5rem;
+            }
+            
+            /* Timeline */
+            .timeline {
+                padding-left: 2rem;
+                margin: 1.5rem 0;
+            }
+            
+            .timeline-item {
+                margin-bottom: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: -1.625rem;
+                width: 10px;
+                height: 10px;
+            }
+            
+            .timeline-title {
+                font-size: 1.125rem;
+            }
+            
+            .timeline-description {
+                font-size: 0.875rem;
+            }
+            
+            /* Reference Links */
+            .reference-links {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+            
+            .reference-link {
+                width: 100%;
+                justify-content: center;
+            }
+
+            /* CTA Section */
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+                margin-top: 3rem;
+            }
+            
+            .cta-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-subtitle {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .primary-button, .secondary-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Badge */
+            .badge {
+                font-size: 0.625rem;
+                padding: 0.25rem 0.5rem;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 2rem 1rem;
+            }
+            
+            /* Founders */
+            .founders {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .founder-card {
+                padding: 2rem;
+            }
+            
+            .founder-avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            /* Reduce animations on mobile */
+            .fade-in-up {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
         }
 
-        .section-subtitle {
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Case Study Section */
-        .case-study {
-            background: var(--bg-secondary);
+        .fade-in-up {
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--accent);
             border-radius: 20px;
-            padding: 4rem;
-            margin: 6rem 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Visual Timeline Styles */
+        .visual-timeline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 3rem 0;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .visual-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 2rem;
+            right: 2rem;
+            height: 4px;
+            background: var(--border);
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            flex: 1;
+        }
+
+        .timeline-step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg-card);
+            border: 3px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step.active .timeline-step-icon {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.5);
+        }
+
+        .timeline-step-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-step-duration {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Comparison Chart */
+        .comparison-chart {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .comparison-side {
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
         }
 
-        .case-study::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
-            pointer-events: none;
+        .comparison-side.traditional {
+            background: linear-gradient(135deg, rgba(255, 59, 48, 0.05) 0%, rgba(255, 59, 48, 0.02) 100%);
+            border-color: rgba(255, 59, 48, 0.2);
         }
 
-        .case-study-header {
+        .comparison-side.ai-native {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.05) 0%, rgba(74, 158, 255, 0.02) 100%);
+            border-color: rgba(74, 158, 255, 0.2);
+        }
+
+        .comparison-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
         }
 
-        .case-study-badge {
-            background: rgba(74, 158, 255, 0.1);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+        .comparison-icon {
+            font-size: 2rem;
+        }
+
+        .comparison-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .comparison-metrics {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .comparison-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .comparison-metric-label {
             font-size: 0.875rem;
-            font-weight: 600;
-            border: 1px solid rgba(74, 158, 255, 0.2);
+            color: var(--text-secondary);
         }
 
-        .case-study-title {
-            font-size: 1.5rem;
-            font-weight: 600;
+        .comparison-metric-value {
+            font-weight: 700;
+            font-size: 1.125rem;
         }
 
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .result-card {
+        /* Progress Indicators */
+        .progress-card {
             background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 12px;
             border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .result-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(74, 158, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
         }
 
-        .result-metric {
-            font-size: 2.5rem;
+        .progress-title {
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+
+        .progress-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 4px;
+            transition: width 1s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Visual ROI Calculator */
+        .roi-visual {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 4rem;
+            margin: 4rem 0;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .roi-equation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .roi-term {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            min-width: 180px;
+        }
+
+        .roi-term-value {
+            font-size: 2rem;
             font-weight: 700;
             background: var(--gradient-1);
             -webkit-background-clip: text;
@@ -406,101 +1037,99 @@
             margin-bottom: 0.5rem;
         }
 
-        .result-title {
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-        }
-
-        .result-description {
+        .roi-term-label {
             color: var(--text-secondary);
             font-size: 0.875rem;
-            line-height: 1.6;
         }
 
-        /* Solutions Grid */
-        .solutions-grid {
+        .roi-operator {
+            font-size: 2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        /* Feature Icons Grid */
+        .feature-icons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .solution-card {
-            background: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .solution-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-1);
-            transform: scaleX(0);
+        .feature-icon-item {
+            text-align: center;
+            padding: 1rem;
             transition: transform 0.3s ease;
         }
 
-        .solution-card:hover::before {
-            transform: scaleX(1);
+        .feature-icon-item:hover {
+            transform: translateY(-4px);
         }
 
-        .solution-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(74, 158, 255, 0.3);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        .feature-icon-bubble {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-2);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .solution-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        .feature-icon-item:hover .feature-icon-bubble {
+            background: var(--gradient-1);
+            transform: rotate(5deg);
         }
 
-        .solution-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.375rem;
-            font-weight: 600;
-        }
-
-        .solution-card p {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .solution-features {
-            list-style: none;
-            padding: 0;
-        }
-
-        .solution-features li {
-            color: var(--text-muted);
+        .feature-icon-label {
             font-size: 0.875rem;
-            padding: 0.25rem 0;
-            padding-left: 1.5rem;
-            position: relative;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
-        .solution-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+        @media (max-width: 768px) {
+            .visual-timeline {
+                flex-direction: column;
+                padding: 0;
+            }
+
+            .visual-timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                right: auto;
+                width: 4px;
+                height: auto;
+                transform: translateX(-50%);
+            }
+
+            .timeline-step {
+                margin-bottom: 2rem;
+            }
+
+            .comparison-chart {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-equation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .roi-operator {
+                transform: rotate(90deg);
+            }
         }
 
         /* Founders Section */
         .founders {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             margin-top: 4rem;
         }
 
@@ -568,93 +1197,27 @@
             transform: translateX(3px);
         }
 
-        /* Stats */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 6rem 0;
-            padding: 3rem;
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .stat {
+        /* Section Header Styles */
+        .section-header {
             text-align: center;
-            padding: 1rem;
+            margin-bottom: 4rem;
         }
 
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-
-        .stat-label {
+        .section-subtitle {
             color: var(--text-secondary);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        /* Expertise Section */
-        .expertise-section {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 4rem;
-            margin: 6rem auto;
-            border: 1px solid var(--border);
-            max-width: 1400px;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .expertise-item {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .expertise-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient-2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.75rem;
-            border: 1px solid var(--border);
-        }
-
-        .expertise-item h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .expertise-item p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            line-height: 1.5;
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
             border-radius: 24px;
-            padding: 5rem 4rem;
+            padding: 4rem 3rem;
             text-align: center;
-            margin-top: 6rem;
+            margin-top: 4rem;
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
@@ -688,255 +1251,6 @@
             position: relative;
             z-index: 1;
         }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            /* Navigation */
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-container {
-                padding: 0 1rem;
-            }
-            
-            /* Hero Section */
-            .hero {
-                padding: 6rem 1rem 3rem;
-                min-height: auto;
-            }
-            
-            h1 {
-                font-size: clamp(2rem, 6vw, 2.5rem);
-                margin-bottom: 1rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.125rem;
-                margin-bottom: 0.75rem;
-            }
-            
-            .hero-description {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.75rem;
-            }
-            
-            .primary-button, .secondary-button {
-                width: 100%;
-                justify-content: center;
-                font-size: 0.9375rem;
-                padding: 0.875rem 1.5rem;
-            }
-            
-            /* Sections */
-            section {
-                padding: 3rem 1rem;
-            }
-            
-            h2 {
-                font-size: clamp(1.75rem, 5vw, 2.25rem);
-                margin-bottom: 1rem;
-            }
-            
-            .section-subtitle {
-                font-size: 1.125rem;
-            }
-            
-            /* Case Study */
-            .case-study {
-                padding: 2rem 1.5rem;
-                margin: 3rem 0;
-            }
-            
-            .case-study-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.75rem;
-                margin-bottom: 2rem;
-            }
-            
-            .results-grid {
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .result-card {
-                padding: 1.5rem;
-            }
-            
-            .result-metric {
-                font-size: 2rem;
-            }
-            
-            /* Solutions */
-            .solutions-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .solution-card {
-                padding: 2rem;
-            }
-            
-            .solution-icon {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-            
-            .solution-card h3 {
-                font-size: 1.25rem;
-            }
-            
-            /* Stats */
-            .stats {
-                padding: 2rem 1.5rem;
-                margin: 3rem 0;
-                gap: 1.5rem;
-            }
-            
-            .stat-number {
-                font-size: 2.5rem;
-            }
-            
-            /* Expertise */
-            .expertise-section {
-                padding: 2.5rem 1.5rem;
-                margin: 3rem auto;
-            }
-            
-            .expertise-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                margin-top: 2rem;
-            }
-            
-            .expertise-item {
-                padding: 1rem;
-            }
-            
-            /* Founders */
-            .founders {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                margin-top: 2rem;
-            }
-            
-            .founder-card {
-                padding: 2rem;
-            }
-            
-            .founder-avatar {
-                width: 120px;
-                height: 120px;
-            }
-            
-            /* Contact */
-            .contact {
-                padding: 3rem 2rem;
-                margin-top: 3rem;
-            }
-            
-            .contact h2 {
-                font-size: 2rem;
-            }
-            
-            .contact-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            /* Footer */
-            footer {
-                padding: 2rem 1rem;
-            }
-            
-            /* Disable parallax on mobile to prevent jitter */
-            .hero {
-                transform: none !important;
-            }
-            
-            /* Reduce animations on mobile */
-            .fade-in-up {
-                animation: none;
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease forwards;
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Glow effects */
-        .glow {
-            position: relative;
-        }
-
-        .glow::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(74, 158, 255, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .glow:hover::after {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -947,10 +1261,7 @@
                 <span class="logo-gradient">LeftShift AI</span>
             </div>
             <div class="nav-links">
-                <a href="#solutions">Solutions</a>
-                <a href="#results">Results</a>
-                <a href="#team">Team</a>
-                <a href="engagement-model.html">Engagement</a>
+                <a href="#team">About</a>
                 <a href="#contact" class="cta-button">Get Started</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -977,26 +1288,22 @@
             </button>
         </div>
         <div class="mobile-menu-links">
-            <a href="#solutions" onclick="closeMobileMenu()">Solutions</a>
-            <a href="#results" onclick="closeMobileMenu()">Results</a>
-            <a href="#team" onclick="closeMobileMenu()">Team</a>
-            <a href="engagement-model.html">Engagement</a>
-            <a href="#contact" class="cta-button" onclick="closeMobileMenu()">Get Started</a>
+            <a href="#team">About</a>
+            <a href="#contact" class="cta-button">Get Started</a>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content fade-in-up">
+    <section class="hero fade-in-up">
+        <div class="hero-content">
             <div class="tag">Become AI-Native Fast</div>
             <h1>Scale <span class="gradient-text">OPEX</span>,<br>Not Headcount</h1>
-            <p class="hero-subtitle">Turn your company into an AI-native lean startup. Double your effective engineering capacity without doubling your payroll.</p>
-            
+            <p class="hero-subtitle"><strong>Convert human hours into compute hours.<br>Convert headcount into operational expenses.</strong></p>
+                
             <div style="display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; padding: 2rem; background: rgba(74, 158, 255, 0.05); border: 1px solid rgba(74, 158, 255, 0.2); border-radius: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
                 <p style="color: var(--accent); font-weight: 600; font-size: 1.375rem; margin: 0; text-align: center;">20-50% more productive AI-enhanced engineers</p>
             </div>
             
-            <p class="hero-description">We help you achieve these gains through optimized AI tool workflows that convert human hours into compute hours.</p>
             <div class="hero-cta">
                 <a href="#contact" class="primary-button">
                     Get Started
@@ -1004,245 +1311,411 @@
                         <path d="M5 12h14m-7-7l7 7-7 7"/>
                     </svg>
                 </a>
-                <a href="#results" class="secondary-button">See Case Study</a>
+                <a href="#team" class="secondary-button">See Case Study</a>
             </div>
         </div>
     </section>
 
-    <!-- Case Study Section -->
-    <section id="results">
-        <div class="case-study fade-in-up">
-            <div class="case-study-header">
-                <span class="case-study-badge">OPEX TRANSFORMATION</span>
-                <h3 class="case-study-title">Fortune 100 Company • 2,000+ Developers</h3>
+    <main>
+        <!-- Meet the Founders -->
+        <section class="section fade-in-up">
+            <div class="section-header">
+                <h2>Meet the <span class="gradient-text">Founders</span></h2>
+                <p class="section-subtitle">Industry veterans who've been building AI before it was mainstream</p>
             </div>
             
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-metric">40%</div>
-                    <h4 class="result-title">Effective Headcount Increase</h4>
-                    <p class="result-description">Achieved same output as hiring 800 engineers through AI productivity multipliers—at 10% of the cost</p>
+            <div class="founders">
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/ziyad-headshot.png" alt="Ziyad Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Ziyad Mir</h3>
+                    <p class="founder-role">Co-Founder & Principal Engineer</p>
+                    <p class="founder-bio">
+                        Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
+                    </p>
+                    <a href="https://www.linkedin.com/in/ziyadmir" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
                 </div>
                 
-                <div class="result-card">
-                    <div class="result-metric">$24M</div>
-                    <h4 class="result-title">Annual Cost Avoidance</h4>
-                    <p class="result-description">Saved vs. traditional hiring: $2M OPEX investment vs. $26M in new engineering salaries</p>
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/amit-gaur-headshot.png" alt="Amit Gaur" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Amit Gaur</h3>
+                    <p class="founder-role">Co-Founder & General Manager</p>
+                    <p class="founder-bio">
+                        Seasoned engineering executive with extensive experience building and scaling AI teams at Fortune 500 companies. Deep expertise in enterprise AI adoption, MLOps, and engineering excellence. Track record of delivering transformative AI solutions that drive measurable business impact.
+                    </p>
+                    <a href="https://www.linkedin.com/in/amitgaur" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
                 </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/hani-mir-headshot.png" alt="Hani Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Hani Mir</h3>
+                    <p class="founder-role">Co-Founder & Principal Engineer</p>
+                    <p class="founder-bio">
+                        ML engineer previously at Character.AI, with experience at Jane Street and as former CTO/Co-founder of ELI5. Brings deep expertise in high-frequency trading systems, AI infrastructure, and building products from 0 to 1. Alumni of Google, Uber, LinkedIn, and Microsoft.
+                    </p>
+                    <a href="https://www.linkedin.com/in/hanimir" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Enterprises Struggle -->
+        <section class="section fade-in-up">
+            <h2>The Traditional Scaling Problem</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Headcount Scaling is Expensive</strong> – $250K+ per engineer annually plus benefits, equipment, management overhead</li>
+                    <li><strong>Hiring is Slow & Risky</strong> – 6+ months to hire, onboard, and achieve productivity</li>
+                    <li><strong>Management Complexity</strong> – each new hire requires more coordination, process, and overhead</li>
+                </ul>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(255, 59, 48, 0.05); border: 1px solid rgba(255, 59, 48, 0.2); border-radius: 12px;">
+                    <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0;">
+                        Result: 100 engineers → 130 effective engineers = 30% cost increase for 30% capacity increase
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Visual -->
+        <div class="comparison-chart fade-in-up">
+            <div class="comparison-side traditional">
+                <div class="comparison-header">
+                    <span class="comparison-icon">🏢</span>
+                    <h3 class="comparison-title">Traditional Scaling</h3>
+                </div>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Cost per Engineer</span>
+                        <span class="comparison-metric-value">$250K+/year</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Time to Productivity</span>
+                        <span class="comparison-metric-value">6+ months</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Capacity Increase</span>
+                        <span class="comparison-metric-value">+30%</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Total Cost Increase</span>
+                        <span class="comparison-metric-value">+30%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comparison-side ai-native">
+                <div class="comparison-header">
+                    <span class="comparison-icon">🚀</span>
+                    <h3 class="comparison-title">AI-Native Scaling</h3>
+                </div>
+                <div class="comparison-metrics">
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Cost per Engineer</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">$12K/year</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Time to Productivity</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">30 days</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Capacity Increase</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">+50%</span>
+                    </div>
+                    <div class="comparison-metric">
+                        <span class="comparison-metric-label">Total Cost Increase</span>
+                        <span class="comparison-metric-value" style="color: var(--accent);">+10%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Ideal Partner -->
+        <section class="section fade-in-up">
+            <h2>The AI-Native Solution</h2>
+            <div class="content-card">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">Scale via OPEX: ~$1,000/engineer/month in AI tools (passthrough pricing from vendors, no markup) vs. $12,000+/month for new hires</p>
+                <ul class="styled-list">
+                    <li><strong>20-50% Productivity Gains</strong> – Each engineer becomes 1.2-1.5x more effective</li>
+                    <li><strong>10x AI-in-the-Loop Engineers</strong> – Optimized workflows across coding, ops, design, and research</li>
+                    <li><strong>Immediate Impact</strong> – Productivity gains in 30 days vs. 6+ months for hiring</li>
+                </ul>
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(74, 158, 255, 0.05); border: 1px solid rgba(74, 158, 255, 0.2); border-radius: 12px;">
+                    <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 0;">
+                        Result: 100 engineers → 150 effective engineers = 10% cost increase for 50% capacity increase
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator Visual -->
+        <div class="roi-visual fade-in-up">
+            <h3 style="font-size: 2.25rem; margin-bottom: 1.5rem;">ROI Calculation for 100 Engineers</h3>
+            <div class="roi-equation">
+                <div class="roi-term">
+                    <div class="roi-term-value">100</div>
+                    <div class="roi-term-label">Engineers</div>
+                </div>
+                <div class="roi-operator">×</div>
+                <div class="roi-term">
+                    <div class="roi-term-value">30%</div>
+                    <div class="roi-term-label">Productivity Gain</div>
+                </div>
+                <div class="roi-operator">=</div>
+                <div class="roi-term">
+                    <div class="roi-term-value">130</div>
+                    <div class="roi-term-label">Total Effective Engineers</div>
+                </div>
+            </div>
+            <p style="font-size: 1.25rem; color: var(--text-secondary); margin-top: 2.5rem;">
+                <strong style="color: var(--text-primary);">Cost Savings:</strong> $7.5M in avoided hiring costs<br>
+                <strong style="color: var(--text-primary);">Investment:</strong> $1.2M in AI tools annually<br>
+                <strong style="color: var(--text-primary);">Net Savings:</strong> <span style="color: var(--accent); font-weight: 700;">$6.3M per year</span>
+            </p>
+        </div>
+
+        <!-- 30-Day Outcomes -->
+        <section class="section fade-in-up">
+            <h2>Target Audience</h2>
+            <div class="content-card">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">VP Engineering, Senior Director of Engineering, or Platform/Developer Productivity leads who:</p>
+                <ul class="styled-list">
+                    <li>Manage <strong>30-50+ engineers</strong> and are responsible for productivity programs</li>
+                    <li>Need to <strong>scale capacity without scaling headcount</strong></li>
+                    <li>Want to <strong>justify AI investments with measurable ROI</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section fade-in-up">
+            <h2>30-Day Productivity Gains</h2>
+            
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">💻 PR Velocity Increase</span>
+                    <span class="progress-value">+40%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">⏱️ Time-to-Merge Reduction</span>
+                    <span class="progress-value">-35%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 35%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">🚨 MTTR Improvement</span>
+                    <span class="progress-value">-30%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%;"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <div class="progress-header">
+                    <span class="progress-title">🎯 Developer Satisfaction</span>
+                    <span class="progress-value">+85%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engagement Model -->
+        <section class="section fade-in-up">
+            <h2>Service Model <span class="badge">Forward Deployed Engineers</span></h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Pure Services</strong> – No SaaS deployment, no data sharing with us</li>
+                    <li><strong>Forward Deployed Engineers</strong> – We design, architect, implement, and deploy solutions</li>
+                    <li><strong>Your AI Tool Stack</strong> – Cursor, Claude, Copilot, Langflow, BrainTrust, plus optimized workflows</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section fade-in-up">
+            <h2>Engagement Model <span class="badge">Process, not Price</span></h2>
+            <div class="visual-timeline">
+                <div class="timeline-step active">
+                    <div class="timeline-step-icon">🔍</div>
+                    <div class="timeline-step-title">Discovery</div>
+                    <div class="timeline-step-duration">Week 1</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">🚀</div>
+                    <div class="timeline-step-title">Pilot</div>
+                    <div class="timeline-step-duration">Weeks 2-4</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">📈</div>
+                    <div class="timeline-step-title">Measure</div>
+                    <div class="timeline-step-duration">Week 4</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-step-icon">⚡</div>
+                    <div class="timeline-step-title">Scale</div>
+                    <div class="timeline-step-duration">Month 2+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Operating Rhythm -->
+        <section class="section fade-in-up">
+            <h2>Observability & Measurement</h2>
+            <div class="content-card">
+                <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">You can't fix what you don't measure. We apply distributed systems observability principles to developer productivity:</p>
+                <ul class="styled-list">
+                    <li><strong>Per-Engineer Metrics</strong> – Adoption, usage, and productivity gains at individual level</li>
+                    <li><strong>Centralized Dashboards</strong> – Real-time visibility into AI tool ROI and performance</li>
+                    <li><strong>Traceability & Spans</strong> – Track productivity improvements across the entire development lifecycle</li>
+                </ul>
                 
-                <div class="result-card">
-                    <div class="result-metric">30 Days</div>
-                    <h4 class="result-title">Time to Productivity</h4>
-                    <p class="result-description">From pilot to measurable productivity gains—vs. 6+ months to hire and onboard equivalent headcount</p>
+                <div style="margin-top: 2rem; padding: 2rem; background: rgba(74, 158, 255, 0.05); border: 1px solid rgba(74, 158, 255, 0.2); border-radius: 12px;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="font-size: 1.5rem;">🧪</span> A/B Testing for Quantifiable Gains
+                    </h3>
+                    <p style="margin-bottom: 1rem;">We prove ROI through rigorous A/B testing of pilot teams within your organization:</p>
+                    <ul class="styled-list">
+                        <li><strong>Control vs. Treatment Groups</strong> – Compare AI-enhanced teams against traditional workflows</li>
+                        <li><strong>Statistical Significance</strong> – Measure PR velocity, MTTR, and cycle time with confidence intervals</li>
+                        <li><strong>Incremental Rollout</strong> – Start with 5-10% of engineers, expand based on proven results</li>
+                        <li><strong>Executive Dashboards</strong> – Real-time metrics that justify continued investment and expansion</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions">
-        <div class="section-header">
-            <h2>How It <span class="gradient-text">Works</span></h2>
-            <p class="section-subtitle">Battle-tested AI productivity solutions that deliver measurable results in 30 days</p>
-        </div>
-        
-        <div class="solutions-grid">
-            <div class="solution-card glow">
-                <span class="solution-icon">🚀</span>
-                <h3>Coding Productivity Multipliers</h3>
-                <p>Convert coding hours into compute hours with AI-powered development workflows. Achieve 40% more output per engineer.</p>
-                <ul class="solution-features">
-                    <li>40% increase in effective coding capacity</li>
-                    <li>Optimized AI tool combinations (Cursor + Claude + Custom workflows)</li>
-                    <li>Measurable productivity gains within 30 days</li>
+        <section class="section fade-in-up">
+            <h2>Operating Rhythm</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li><strong>Direct Line</strong> – Slack/phone with all founders</li>
+                    <li><strong>Hands-On Delivery</strong> – we write code, pair with your ICs, and coach exec stakeholders</li>
+                    <li><strong>Transparent Artifacts</strong> – weekly demo, KPI dashboard, and next-step backlog</li>
                 </ul>
             </div>
-            
-            <div class="solution-card glow">
-                <span class="solution-icon">⚡</span>
-                <h3>Operational Efficiency Gains</h3>
-                <p>Reduce operational overhead per engineer through AI-driven incident response and automated runbooks.</p>
-                <ul class="solution-features">
-                    <li>70% reduction in time-to-resolution</li>
-                    <li>Automated operational workflows</li>
-                    <li>Higher effective uptime per ops engineer</li>
-                </ul>
-            </div>
-            
-            <div class="solution-card glow">
-                <span class="solution-icon">🔐</span>
-                <h3>Security & Compliance</h3>
-                <p>Enterprise-grade security with complete auditability, working directly with your CISO and security teams.</p>
-                <ul class="solution-features">
-                    <li>Air-gapped deployment options</li>
-                    <li>SOC 2 & ISO compliance</li>
-                    <li>Full audit trails & governance</li>
-                </ul>
-            </div>
-            
-            <div class="solution-card glow">
-                <span class="solution-icon">🎨</span>
-                <h3>Design Intelligence</h3>
-                <p>Bridge the gap between design and development with AI-powered design systems and automated UI generation.</p>
-                <ul class="solution-features">
-                    <li>Design-to-code automation</li>
-                    <li>Consistent design systems</li>
-                    <li>Accessibility compliance</li>
-                </ul>
-            </div>
-            
-            <div class="solution-card glow">
-                <span class="solution-icon">🔍</span>
-                <h3>Information Retrieval</h3>
-                <p>Transform your knowledge management with advanced RAG systems and intelligent search across all your data.</p>
-                <ul class="solution-features">
-                    <li>Enterprise knowledge graphs</li>
-                    <li>Multi-modal search capabilities</li>
-                    <li>Real-time data synchronization</li>
-                </ul>
-            </div>
-            
-            <div class="solution-card glow">
-                <span class="solution-icon">📊</span>
-                <h3>Productivity Observability</h3>
-                <p>Measure what you can't fix. Track developer productivity gains with the same rigor as distributed systems observability.</p>
-                <ul class="solution-features">
-                    <li>Per-engineer productivity metrics</li>
-                    <li>AI tool adoption & ROI tracking</li>
-                    <li>Centralized productivity dashboards</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats -->
-    <section>
-        <div class="stats fade-in-up">
-            <div class="stat">
-                <div class="stat-number">20-50%</div>
-                <div class="stat-label">Productivity Increase Per Engineer</div>
+        <!-- Proven Playbooks -->
+        <section class="section fade-in-up">
+            <h2>Proven Playbooks We Bring</h2>
+            <div class="content-card">
+                <ul class="styled-list">
+                    <li>Security review templates for frontier models</li>
+                    <li>OKR patterns to tie AI work to business value</li>
+                    <li>Pre-built agent workflows (LangChain, Devin-style, etc.) ready to customize</li>
+                </ul>
             </div>
-            <div class="stat">
-                <div class="stat-number">$1,000</div>
-                <div class="stat-label">Monthly OPEX Per Engineer</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">90%</div>
-                <div class="stat-label">Cost Savings vs. Hiring</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">30 Days</div>
-                <div class="stat-label">Time to Measurable Impact</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Expertise Section -->
-    <section class="expertise-section fade-in-up">
-        <div class="section-header">
-            <h2>Why <span class="gradient-text">LeftShift AI</span></h2>
-            <p class="section-subtitle">We turn your engineering team into an AI-native, cost-efficient powerhouse</p>
-        </div>
-        
-        <div class="expertise-grid">
-            <div class="expertise-item">
-                <div class="expertise-icon">💰</div>
-                <h4>OPEX Over CAPEX</h4>
-                <p>$1,000/month per engineer vs. $10,000+ for new hires—achieve growth without hiring</p>
+        <!-- Reference Win -->
+        <section class="section fade-in-up">
+            <h2>Reference Win <span class="gradient-text">(Coupang)</span></h2>
+            <div class="content-card" style="background: var(--bg-secondary);">
+                <ul class="styled-list">
+                    <li>25-person "AI guild" enabled across <strong>2,500 engineers</strong></li>
+                    <li><strong>40% lift</strong> in PR throughput, <strong>35% reduction</strong> in mean time to merge PRs, and <strong>30% faster</strong> incident recovery within 30 days</li>
+                </ul>
             </div>
-            
-            <div class="expertise-item">
-                <div class="expertise-icon">📈</div>
-                <h4>Measurable Productivity</h4>
-                <p>20-50% effective capacity increase per engineer through optimized AI workflows</p>
-            </div>
-            
-            <div class="expertise-item">
-                <div class="expertise-icon">🔬</div>
-                <h4>Lean Startup Methodology</h4>
-                <p>Rapid MVP deployment, metric validation, and iterative improvement cycles</p>
-            </div>
-            
-            <div class="expertise-item">
-                <div class="expertise-icon">🛠️</div>
-                <h4>Forward Deployed Engineers</h4>
-                <p>We design, implement, and measure results—no consulting, pure execution</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Team Section -->
-    <section id="team">
-        <div class="section-header">
-            <h2>Meet the <span class="gradient-text">Founders</span></h2>
-            <p class="section-subtitle">Industry veterans who've been building AI before it was mainstream</p>
-        </div>
-        
-        <div class="founders">
-            <div class="founder-card">
-                <div class="founder-avatar">
-                    <img src="images/ziyad-headshot.png" alt="Ziyad Mir" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- Why Left Shift AI -->
+        <section class="section fade-in-up">
+            <h2>Why <span class="gradient-text">Left Shift AI</span></h2>
+            
+            <div class="feature-icons">
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">👥</div>
+                    <div class="feature-icon-label">Founders Only</div>
                 </div>
-                <h3 class="founder-name">Ziyad Mir</h3>
-                <p class="founder-role">Co-Founder & Principal Engineer</p>
-                <p class="founder-bio">
-                    Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
-                </p>
-                <a href="https://www.linkedin.com/in/ziyadmir" class="linkedin-link" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    Connect on LinkedIn
-                </a>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🧠</div>
+                    <div class="feature-icon-label">Deep Tech</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">📊</div>
+                    <div class="feature-icon-label">Metric-First</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🚀</div>
+                    <div class="feature-icon-label">Fast Results</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🛡️</div>
+                    <div class="feature-icon-label">Enterprise Ready</div>
+                </div>
+                <div class="feature-icon-item">
+                    <div class="feature-icon-bubble">🎯</div>
+                    <div class="feature-icon-label">ROI Focused</div>
+                </div>
             </div>
             
-            <div class="founder-card">
-                <div class="founder-avatar">
-                    <img src="images/amit-gaur-headshot.png" alt="Amit Gaur" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-                <h3 class="founder-name">Amit Gaur</h3>
-                <p class="founder-role">Co-Founder & General Manager</p>
-                <p class="founder-bio">
-                    Seasoned engineering executive with extensive experience building and scaling AI teams at Fortune 500 companies. Deep expertise in enterprise AI adoption, MLOps, and engineering excellence. Track record of delivering transformative AI solutions that drive measurable business impact.
-                </p>
-                <a href="https://www.linkedin.com/in/amitgaur" class="linkedin-link" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    Connect on LinkedIn
-                </a>
+            <div class="content-card" style="margin-top: 2rem;">
+                <ul class="styled-list">
+                    <li><strong>Founders Only</strong> – no hand-offs to junior consultants</li>
+                    <li><strong>Deep Tech + Change Management</strong> – we solve both code and culture</li>
+                    <li><strong>Metric-First Mindset</strong> – value demonstrated in the first sprint</li>
+                </ul>
             </div>
+        </section>
 
-            <div class="founder-card">
-                <div class="founder-avatar">
-                    <img src="images/hani-mir-headshot.png" alt="Hani Mir" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- Next Steps -->
+        <section class="section fade-in-up">
+            <h2>Next Steps</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Identify two use cases for internal productivity improvement</h3>
                 </div>
-                <h3 class="founder-name">Hani Mir</h3>
-                <p class="founder-role">Co-Founder & Principal Engineer</p>
-                <p class="founder-bio">
-                    ML engineer previously at Character.AI, with experience at Jane Street and as former CTO/Co-founder of ELI5. Brings deep expertise in high-frequency trading systems, AI infrastructure, and building products from 0 to 1. Alumni of Google, Uber, LinkedIn, and Microsoft.
-                </p>
-                <a href="https://www.linkedin.com/in/hanimir" class="linkedin-link" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    Connect on LinkedIn
-                </a>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Schedule a 60-min scoping call</h3>
+                    <p class="timeline-description">With Amit, Ziyad, and Hani</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Kick off the one-month pilot</h3>
+                    <p class="timeline-description">Start measuring impact immediately</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Ready to <span class="gradient-text">Get Started?</span></h2>
-        <p class="contact-subtitle">Double your engineering capacity without doubling your payroll. Book a strategy session to calculate your OPEX transformation.</p>
-        <a href="mailto:ziyadmir@gmail.com" class="primary-button">
-            Book Strategy Session
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14m-7-7l7 7-7 7"/>
-            </svg>
-        </a>
-    </section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Ready to <span class="gradient-text">Get Started?</span></h2>
+            <p class="contact-subtitle">Double your engineering capacity without doubling your payroll.<br>Book a strategy session to calculate your OPEX transformation.</p>
+            <a href="mailto:ziyadmir@gmail.com" class="primary-button">
+                Book Strategy Session
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14m-7-7l7 7-7 7"/>
+                </svg>
+            </a>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -1250,20 +1723,6 @@
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
@@ -1298,20 +1757,9 @@
         }, observerOptions);
 
         // Observe all sections and cards
-        document.querySelectorAll('section, .solution-card, .result-card, .founder-card, .expertise-item').forEach(el => {
+        document.querySelectorAll('.section, .cta-section').forEach(el => {
             observer.observe(el);
         });
-
-        // Parallax effect for hero section (disabled on mobile)
-        if (window.innerWidth > 768) {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
-            });
-        }
 
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
