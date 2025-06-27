@@ -202,11 +202,20 @@
 
         /* Hero Section */
         .hero {
-            padding: 10rem 2rem 4rem;
-            max-width: 1200px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            background: radial-gradient(ellipse at top, rgba(74, 158, 255, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
-            position: relative;
+            z-index: 1;
         }
 
         .hero::before {
@@ -233,10 +242,10 @@
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.1;
+            line-height: 1.05;
             letter-spacing: -0.03em;
         }
 
@@ -254,16 +263,43 @@
             line-height: 1.6;
         }
 
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .secondary-button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
         /* Main Content */
         main {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 2rem 6rem;
         }
 
         /* Section Headers */
         .section {
-            margin-bottom: 4rem;
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .section-number {
@@ -282,7 +318,7 @@
         }
 
         h2 {
-            font-size: 2.25rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
@@ -1072,6 +1108,133 @@
                 transform: rotate(90deg);
             }
         }
+
+        /* Founders Section */
+        .founders {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .founder-avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 3px solid var(--border);
+            background: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        .founder-name {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .founder-role {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .founder-bio {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .linkedin-link {
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .linkedin-link:hover {
+            color: var(--accent-hover);
+            transform: translateX(3px);
+        }
+
+        /* Section Header Styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            padding: 5rem 4rem;
+            text-align: center;
+            margin-top: 6rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact h2 {
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
@@ -1088,7 +1251,7 @@
                 <a href="index.html#results">Results</a>
                 <a href="index.html#team">Team</a>
                 <a href="engagement-model.html" class="active">Engagement</a>
-                <a href="index.html#contact" class="cta-button">Calculate Savings</a>
+                <a href="#contact" class="cta-button">Get Started</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1124,10 +1287,25 @@
 
     <!-- Hero Section -->
     <section class="hero fade-in-up">
-        <div class="tag">Scale OPEX, Not Headcount</div>
-        <h1>Turn Your Company into an <span class="gradient-text">AI-Native Lean Startup</span></h1>
-        <p class="hero-subtitle"><strong>Convert human hours into compute hours. Convert headcount into operational expenses.</strong></p>
-        <p class="hero-subtitle">Double your effective engineering capacity without doubling your payroll.</p>
+        <div class="hero-content">
+            <div class="tag">Become AI-Native Fast</div>
+            <h1>Scale <span class="gradient-text">OPEX</span>,<br>Not Headcount</h1>
+            <p class="hero-subtitle"><strong>Convert human hours into compute hours.<br>Convert headcount into operational expenses.</strong></p>
+                
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; padding: 2rem; background: rgba(74, 158, 255, 0.05); border: 1px solid rgba(74, 158, 255, 0.2); border-radius: 16px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <p style="color: var(--accent); font-weight: 600; font-size: 1.375rem; margin: 0; text-align: center;">20-50% more productive AI-enhanced engineers</p>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#contact" class="primary-button">
+                    Get Started
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14m-7-7l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#team" class="secondary-button">See Case Study</a>
+            </div>
+        </div>
     </section>
 
     <main>
@@ -1154,28 +1332,62 @@
                 <div class="timeline-step-duration">Month 2+</div>
             </div>
         </div>
-        <!-- Who We Are -->
+        <!-- Meet the Founders -->
         <section class="section fade-in-up">
-            <div class="section-number">1</div>
-            <h2>Who We Are</h2>
-            <div class="content-card">
-                <ul class="styled-list">
-                    <li><strong>Amit (GM), Ziyad & Hani (Principal Engineers)</strong> – led Coupang's internal "AI-for-Work" program</li>
-                    <li>Shipped enterprise-grade agents, tooling, and adoption playbooks for a <strong>2,500-engineer org</strong></li>
-                    <li><strong>15+ years each</strong> building and scaling software at FAANG-class companies</li>
-                </ul>
-                <div class="reference-links">
-                    <a href="https://ziyadmir.com/blog.html" class="reference-link" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            <div class="section-header">
+                <h2>Meet the <span class="gradient-text">Founders</span></h2>
+                <p class="section-subtitle">Industry veterans who've been building AI before it was mainstream</p>
+            </div>
+            
+            <div class="founders">
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/ziyad-headshot.png" alt="Ziyad Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Ziyad Mir</h3>
+                    <p class="founder-role">Co-Founder & Principal Engineer</p>
+                    <p class="founder-bio">
+                        Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
+                    </p>
+                    <a href="https://www.linkedin.com/in/ziyadmir" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
-                        Read Our Blog
+                        Connect on LinkedIn
                     </a>
-                    <a href="https://ziyadmir.com/projects/coupang-ai-work.html" class="reference-link" target="_blank">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11H3v2h6v-2zm0-4H3v2h6V7zm0 8H3v2h6v-2zm12-4h-6v2h6v-2zm0-4h-6v2h6V7zm0 8h-6v2h6v-2z"/>
+                </div>
+                
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/amit-gaur-headshot.png" alt="Amit Gaur" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Amit Gaur</h3>
+                    <p class="founder-role">Co-Founder & General Manager</p>
+                    <p class="founder-bio">
+                        Seasoned engineering executive with extensive experience building and scaling AI teams at Fortune 500 companies. Deep expertise in enterprise AI adoption, MLOps, and engineering excellence. Track record of delivering transformative AI solutions that drive measurable business impact.
+                    </p>
+                    <a href="https://www.linkedin.com/in/amitgaur" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
-                        Coupang AI Case Study
+                        Connect on LinkedIn
+                    </a>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <img src="images/hani-mir-headshot.png" alt="Hani Mir" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3 class="founder-name">Hani Mir</h3>
+                    <p class="founder-role">Co-Founder & Principal Engineer</p>
+                    <p class="founder-bio">
+                        ML engineer previously at Character.AI, with experience at Jane Street and as former CTO/Co-founder of ELI5. Brings deep expertise in high-frequency trading systems, AI infrastructure, and building products from 0 to 1. Alumni of Google, Uber, LinkedIn, and Microsoft.
+                    </p>
+                    <a href="https://www.linkedin.com/in/hanimir" class="linkedin-link" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        Connect on LinkedIn
                     </a>
                 </div>
             </div>
@@ -1183,7 +1395,6 @@
 
         <!-- Why Enterprises Struggle -->
         <section class="section fade-in-up">
-            <div class="section-number">2</div>
             <h2>The Traditional Scaling Problem</h2>
             <div class="content-card">
                 <ul class="styled-list">
@@ -1253,7 +1464,6 @@
 
         <!-- Our Ideal Partner -->
         <section class="section fade-in-up">
-            <div class="section-number">3</div>
             <h2>The AI-Native Solution</h2>
             <div class="content-card">
                 <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">Scale via OPEX: ~$1,000/engineer/month in AI tools (passthrough pricing from vendors, no markup) vs. $12,000+/month for new hires</p>
@@ -1298,7 +1508,6 @@
 
         <!-- 30-Day Outcomes -->
         <section class="section fade-in-up">
-            <div class="section-number">4</div>
             <h2>Target Audience</h2>
             <div class="content-card">
                 <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">VP Engineering, Senior Director of Engineering, or Platform/Developer Productivity leads who:</p>
@@ -1311,7 +1520,6 @@
         </section>
 
         <section class="section fade-in-up">
-            <div class="section-number">5</div>
             <h2>30-Day Productivity Gains</h2>
             
             <div class="progress-card">
@@ -1357,7 +1565,6 @@
 
         <!-- Engagement Model -->
         <section class="section fade-in-up">
-            <div class="section-number">6</div>
             <h2>Service Model <span class="badge">Forward Deployed Engineers</span></h2>
             <div class="content-card">
                 <ul class="styled-list">
@@ -1369,7 +1576,6 @@
         </section>
 
         <section class="section fade-in-up">
-            <div class="section-number">7</div>
             <h2>Engagement Model <span class="badge">Process, not Price</span></h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -1389,7 +1595,6 @@
 
         <!-- Operating Rhythm -->
         <section class="section fade-in-up">
-            <div class="section-number">8</div>
             <h2>Observability & Measurement</h2>
             <div class="content-card">
                 <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">You can't fix what you don't measure. We apply distributed systems observability principles to developer productivity:</p>
@@ -1415,7 +1620,6 @@
         </section>
 
         <section class="section fade-in-up">
-            <div class="section-number">9</div>
             <h2>Operating Rhythm</h2>
             <div class="content-card">
                 <ul class="styled-list">
@@ -1428,7 +1632,6 @@
 
         <!-- Proven Playbooks -->
         <section class="section fade-in-up">
-            <div class="section-number">10</div>
             <h2>Proven Playbooks We Bring</h2>
             <div class="content-card">
                 <ul class="styled-list">
@@ -1441,7 +1644,6 @@
 
         <!-- Reference Win -->
         <section class="section fade-in-up">
-            <div class="section-number">11</div>
             <h2>Reference Win <span class="gradient-text">(Coupang)</span></h2>
             <div class="content-card" style="background: var(--bg-secondary);">
                 <ul class="styled-list">
@@ -1453,7 +1655,6 @@
 
         <!-- Why Left Shift AI -->
         <section class="section fade-in-up">
-            <div class="section-number">12</div>
             <h2>Why <span class="gradient-text">Left Shift AI</span></h2>
             
             <div class="feature-icons">
@@ -1494,7 +1695,6 @@
 
         <!-- Next Steps -->
         <section class="section fade-in-up">
-            <div class="section-number">13</div>
             <h2>Next Steps</h2>
             <div class="timeline">
                 <div class="timeline-item">
@@ -1511,22 +1711,17 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <div class="cta-section fade-in-up">
-            <div class="cta-content">
-                <h2 class="cta-title">Ready to <span class="gradient-text">Scale OPEX?</span></h2>
-                <p class="cta-subtitle">Calculate your potential savings and productivity gains. Turn your engineering team into an AI-native lean startup.</p>
-                <div class="cta-buttons">
-                    <a href="mailto:founders@leftshiftai.com" class="primary-button">
-                        Calculate Your OPEX Transformation
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14m-7-7l7 7-7 7"/>
-                        </svg>
-                    </a>
-                    <a href="index.html#contact" class="secondary-button">Schedule Strategy Call</a>
-                </div>
-            </div>
-        </div>
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Ready to <span class="gradient-text">Get Started?</span></h2>
+            <p class="contact-subtitle">Double your engineering capacity without doubling your payroll.<br>Book a strategy session to calculate your OPEX transformation.</p>
+            <a href="mailto:ziyadmir@gmail.com" class="primary-button">
+                Book Strategy Session
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14m-7-7l7 7-7 7"/>
+                </svg>
+            </a>
+        </section>
     </main>
 
     <!-- Footer -->
