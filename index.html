@@ -79,6 +79,15 @@
             letter-spacing: -0.02em;
             text-decoration: none;
             color: inherit;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(1.5) contrast(1.2);
         }
 
         .logo-gradient {
@@ -1372,6 +1381,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="/" class="logo">
+                <img src="images/leftshift.png" alt="LeftShift AI Logo">
                 <span class="logo-gradient">LeftShift AI</span>
             </a>
             <div class="nav-links">
@@ -1399,6 +1409,7 @@
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <a href="/" class="logo">
+                <img src="images/leftshift.png" alt="LeftShift AI Logo">
                 <span class="logo-gradient">LeftShift AI</span>
             </a>
             <button class="mobile-menu-close" id="mobileMenuClose">
