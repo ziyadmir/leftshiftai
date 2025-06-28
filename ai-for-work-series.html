@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-for-Work Series: 12-Month Enterprise AI Roadmap - LeftShift AI</title>
+    
+    <style>
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #666666;
+            --accent: #4a9eff;
+            --accent-hover: #3a8eef;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(90deg, #4a9eff 0%, #00d4ff 100%);
+            --gradient-2: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-gradient {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            background: rgba(74, 158, 255, 0.1);
+            color: var(--accent);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.5;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* Series Overview */
+        .series-overview {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .overview-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .overview-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-card p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .target-audience {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .audience-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Episodes Grid */
+        .episodes-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .episodes-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .episode-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .episode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .episode-card:hover {
+            transform: translateX(8px);
+            border-color: rgba(74, 158, 255, 0.3);
+        }
+
+        .episode-card:hover::before {
+            opacity: 1;
+        }
+
+        .episode-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            border-radius: 50%;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .episode-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .episode-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .episode-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .episode-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Timeline Visual */
+        .timeline-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--border);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin: 0 2rem;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 4px solid var(--bg-secondary);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 24px;
+            text-align: center;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .primary-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-1);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(74, 158, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(74, 158, 255, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .overview-card {
+                padding: 2rem;
+            }
+            
+            .episode-card {
+                padding: 2rem;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: 40px;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                margin: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-gradient">LeftShift AI</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/#team">Team</a>
+                <a href="/case-study.html">Case Study</a>
+                <a href="mailto:ziyadmir@gmail.com">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="badge">AI Transformation Series</span>
+        <h1>AI-for-Work: <span class="gradient-text">12-Month Roadmap</span></h1>
+        <p class="hero-subtitle">An AI Architect's Pragmatic Guide to AI Deployment in Large Enterprises</p>
+        <div class="hero-meta">
+            <span>📅 April 2025</span>
+            <span>•</span>
+            <span>📚 7 Parts</span>
+            <span>•</span>
+            <span>⏱️ 45 min total read</span>
+        </div>
+    </section>
+
+    <!-- Series Overview -->
+    <section class="series-overview">
+        <div class="overview-card">
+            <h2>Series Overview</h2>
+            <p>
+                Enterprise AI adoption isn't about the models—it's about the infrastructure, governance, and cultural transformation. This comprehensive series documents the proven methodology we've used to transform engineering organizations at scale.
+            </p>
+            <p>
+                Each part of this series represents a critical milestone in your AI transformation journey, based on real-world implementations at companies like Coupang where we achieved 30%+ productivity gains across 2,500+ engineers.
+            </p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Target Audience</h3>
+            <div class="target-audience">
+                <span class="audience-tag">AI Architects</span>
+                <span class="audience-tag">Engineering Managers</span>
+                <span class="audience-tag">Platform Engineers</span>
+                <span class="audience-tag">Security Engineers</span>
+                <span class="audience-tag">CTOs/VPs of Engineering</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Episodes -->
+    <section class="episodes-section">
+        <div class="section-header">
+            <h2>The Complete Series</h2>
+        </div>
+        
+        <div class="episodes-grid">
+            <div class="episode-card">
+                <div class="episode-number">1</div>
+                <h3 class="episode-title">Get Everyone an AI IDE</h3>
+                <p class="episode-description">
+                    Start with the basics: get every developer a properly configured AI IDE. Learn how to roll out Windsurf or Cursor at scale, handle licensing, and achieve 90%+ adoption rates.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-1-ai-ide.html" class="episode-link" target="_blank">
+                    Read Part 1
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">2</div>
+                <h3 class="episode-title">Building a Centralized MCP Gateway</h3>
+                <p class="episode-description">
+                    Model Context Protocol (MCP) is the bridge between AI and your enterprise data. Learn how to build a secure, audited gateway that gives AI tools access to internal systems.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-2-mcp-gateway.html" class="episode-link" target="_blank">
+                    Read Part 2
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">3</div>
+                <h3 class="episode-title">From Proxy Logs to Intelligence</h3>
+                <p class="episode-description">
+                    Build real-time analysis pipelines that transform raw AI interaction data into actionable insights. Learn how to measure productivity gains and identify optimization opportunities.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-3-ai-observability.html" class="episode-link" target="_blank">
+                    Read Part 3
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">4</div>
+                <h3 class="episode-title">Agent Orchestration at Scale</h3>
+                <p class="episode-description">
+                    Build an enterprise agent orchestration platform that manages complex multi-step AI workflows. Learn how to create Emux (Engineer Multiplexer) for your organization.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-4-agent-orchestration.html" class="episode-link" target="_blank">
+                    Read Part 4
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">5</div>
+                <h3 class="episode-title">Preserving Institutional Knowledge</h3>
+                <p class="episode-description">
+                    Develop a systematic approach to selective context preservation. Learn how to capture and maintain organizational knowledge in a way that's accessible to AI systems.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-5-knowledge-preservation.html" class="episode-link" target="_blank">
+                    Read Part 5
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">6</div>
+                <h3 class="episode-title">Work-as-Code</h3>
+                <p class="episode-description">
+                    Transform every manual task into a callable function. Learn how to create standardized interfaces that make any engineering operation accessible to AI agents.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-6-work-as-code.html" class="episode-link" target="_blank">
+                    Read Part 6
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="episode-card">
+                <div class="episode-number">7</div>
+                <h3 class="episode-title">Building AI Observability and Adoption Programs</h3>
+                <p class="episode-description">
+                    Measure AI impact, identify power users, and create organizational capabilities. Learn how to build dashboards, run adoption programs, and prove ROI to leadership.
+                </p>
+                <a href="https://ziyadmir.com/blog/ai-for-work-part-7-engineering-org-needs.html" class="episode-link" target="_blank">
+                    Read Part 7
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Visual -->
+    <section class="timeline-section">
+        <div class="timeline-header">
+            <h2>12-Month Implementation Timeline</h2>
+            <p style="color: var(--text-secondary); margin-top: 1rem;">Follow this proven roadmap for your AI transformation</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 1-2:</strong> AI IDE Rollout
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Deploy AI IDEs, train teams, establish baseline metrics</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 3-4:</strong> MCP Gateway & Security
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Build secure infrastructure for AI-enterprise integration</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 5-6:</strong> Observability & Measurement
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Deploy analytics pipelines and prove initial ROI</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 7-8:</strong> Agent Orchestration
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Launch autonomous workflows and complex automations</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 9-10:</strong> Knowledge Systems
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Implement knowledge preservation and Work-as-Code</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <strong>Months 11-12:</strong> Scale & Optimize
+                    <p style="color: var(--text-secondary); margin-top: 0.5rem;">Expand adoption, optimize costs, plan next phase</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <h2 style="margin-bottom: 1rem;">Ready to Start Your AI Transformation?</h2>
+        <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 2rem; position: relative; z-index: 1;">
+            Let LeftShift AI guide your organization through this proven 12-month roadmap. We've done this before, and we can help you achieve similar results.
+        </p>
+        <a href="mailto:ziyadmir@gmail.com" class="primary-button">
+            Schedule a Consultation
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14m-7-7l7 7-7 7"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 LeftShift AI. All rights reserved.</p>
+    </footer>
+</body>
+</html>
