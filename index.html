@@ -1095,9 +1095,10 @@
 
         @media (max-width: 768px) {
             .visual-timeline {
-                overflow-x: auto;
+                flex-wrap: wrap;
                 padding: 1rem 0;
                 gap: 1.5rem;
+                overflow: visible;
             }
 
             .visual-timeline::before {
@@ -1105,8 +1106,8 @@
             }
 
             .timeline-step {
-                flex: 0 0 auto;
-                min-width: 120px;
+                flex: 0 0 calc(50% - 1rem);
+                min-width: 0;
             }
 
             .comparison-chart {
