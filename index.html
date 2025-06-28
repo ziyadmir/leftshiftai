@@ -1208,6 +1208,46 @@
             margin-bottom: 1.5rem;
         }
 
+        /* Company Logo Styles */
+        .company-logos {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        .company-logo-bubble {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .company-logo-bubble:hover {
+            transform: scale(1.1);
+            border-color: var(--accent);
+            background: rgba(74, 158, 255, 0.1);
+        }
+
+        .company-logo-bubble img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-logo-bubble:hover img {
+            opacity: 1;
+        }
+
         .linkedin-link {
             color: var(--accent);
             text-decoration: none;
@@ -1381,6 +1421,17 @@
                     </div>
                     <h3 class="founder-name">Ziyad Mir</h3>
                     <p class="founder-role">Partner & Principal Engineer</p>
+                    <div class="company-logos">
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/google-logo.svg" alt="Google" title="Google">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/uber-logo.png" alt="Uber" title="Uber">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/quora-logo.svg" alt="Quora" title="Quora">
+                        </div>
+                    </div>
                     <p class="founder-bio">
                         Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
                     </p>
@@ -1398,6 +1449,17 @@
                     </div>
                     <h3 class="founder-name">Amit Gaur</h3>
                     <p class="founder-role">Partner & General Manager</p>
+                    <div class="company-logos">
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/snap-logo.png" alt="Snap" title="Snap">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/aws-logo.svg" alt="AWS" title="AWS">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/coupang-logo.png" alt="Coupang" title="Coupang">
+                        </div>
+                    </div>
                     <p class="founder-bio">
                         Seasoned engineering executive with extensive experience building and scaling AI teams at Fortune 500 companies. Deep expertise in enterprise AI adoption, MLOps, and engineering excellence. Track record of delivering transformative AI solutions that drive measurable business impact.
                     </p>
@@ -1415,6 +1477,17 @@
                     </div>
                     <h3 class="founder-name">Hani Mir</h3>
                     <p class="founder-role">Partner & Principal Engineer</p>
+                    <div class="company-logos">
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/janestreet-logo.png" alt="Jane Street" title="Jane Street">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/character-logo.png" alt="Character.AI" title="Character.AI">
+                        </div>
+                        <div class="company-logo-bubble">
+                            <img src="images/company-logos/google-logo.svg" alt="Google" title="Google">
+                        </div>
+                    </div>
                     <p class="founder-bio">
                         ML engineer previously at Character.AI, with experience at Jane Street and as former CTO/Co-founder of ELI5. Brings deep expertise in high-frequency trading systems, AI infrastructure, and building products from 0 to 1. Alumni of Google, Uber, LinkedIn, and Microsoft.
                     </p>
