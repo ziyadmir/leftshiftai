@@ -36,7 +36,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Navigation - simplified */
+        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -47,6 +47,12 @@
             z-index: 1000;
             padding: 1.25rem 0;
             border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(0, 0, 0, 0.95);
         }
 
         .nav-container {
@@ -89,23 +95,26 @@
             color: var(--text-primary);
         }
 
+        .nav-links a.active {
+            color: var(--text-primary);
+        }
+
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: var(--gradient-1);
-            color: white !important;
+            background: var(--accent);
+            color: #ffffff !important;
+            padding: 0.625rem 1.5rem;
+            border-radius: 6px;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(74, 158, 255, 0.3);
+            font-weight: 600;
+            font-size: 0.875rem;
+            letter-spacing: 0.02em;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(74, 158, 255, 0.5);
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.4);
         }
 
         /* Mobile Menu Button */
@@ -913,6 +922,16 @@
     </footer>
 
     <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
