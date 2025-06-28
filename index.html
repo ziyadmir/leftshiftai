@@ -302,6 +302,7 @@
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            scroll-margin-top: 80px; /* prevent titles being hidden behind fixed nav */
         }
 
         .section-number {
@@ -1254,6 +1255,7 @@
             border: 1px solid var(--border);
             position: relative;
             overflow: hidden;
+            scroll-margin-top: 80px; /* account for fixed navbar */
         }
 
         .contact::before {
