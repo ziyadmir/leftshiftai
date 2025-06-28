@@ -1095,22 +1095,18 @@
 
         @media (max-width: 768px) {
             .visual-timeline {
-                flex-direction: column;
-                padding: 0;
+                overflow-x: auto;
+                padding: 1rem 0;
+                gap: 1.5rem;
             }
 
             .visual-timeline::before {
-                top: 0;
-                bottom: 0;
-                left: 50%;
-                right: auto;
-                width: 4px;
-                height: auto;
-                transform: translateX(-50%);
+                display: none;
             }
 
             .timeline-step {
-                margin-bottom: 2rem;
+                flex: 0 0 auto;
+                min-width: 120px;
             }
 
             .comparison-chart {
@@ -1197,6 +1193,24 @@
         .linkedin-link:hover {
             color: var(--accent-hover);
             transform: translateX(3px);
+        }
+
+        /* Mobile fixes placed after base styles for proper override */
+        @media (max-width: 768px) {
+            .founders {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .founder-card {
+                padding: 2rem;
+            }
+
+            .founder-avatar {
+                width: 120px;
+                height: 120px;
+            }
         }
 
         /* Section Header Styles */
