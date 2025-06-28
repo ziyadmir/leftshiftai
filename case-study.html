@@ -320,7 +320,7 @@
             margin: 0;
         }
 
-        /* Timeline */
+        /* Roadmap */
         .timeline-section {
             margin: 4rem 0;
         }
@@ -330,66 +330,60 @@
             margin-bottom: 3rem;
         }
 
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
+        .roadmap-phases {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 2px;
-            height: 100%;
-            background: var(--border);
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .phase-group {
             margin-bottom: 3rem;
-            position: relative;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .timeline-item:nth-child(odd) {
-            flex-direction: row-reverse;
+        .phase-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            text-align: center;
         }
 
-        .timeline-content {
-            flex: 0 1 400px;
-            padding: 2rem;
+        .phase-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .roadmap-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
-            margin: 0 2rem;
+            border-radius: 16px;
+            padding: 2rem;
             transition: all 0.3s ease;
-            text-align: left;
+            position: relative;
         }
 
-        .timeline-content:hover {
+        .roadmap-card:hover {
             border-color: rgba(74, 158, 255, 0.3);
-            transform: scale(1.02);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .timeline-dot {
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border: 4px solid var(--bg-secondary);
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
+        .roadmap-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .phase-timing {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
         }
 
         .phase-number {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -401,7 +395,25 @@
             font-weight: 700;
             font-size: 0.875rem;
             color: var(--accent);
+        }
+
+        .roadmap-card ul {
             margin-bottom: 1rem;
+        }
+
+        .roadmap-card ul li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .phase-result {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-style: italic;
+            color: var(--accent);
+            font-size: 0.875rem;
         }
 
         ul {
@@ -573,22 +585,18 @@
                 padding: 2rem;
             }
             
-            .timeline::before {
-                left: 20px;
+            .phase-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
-            .timeline-item {
-                flex-direction: column !important;
-                padding-left: 40px;
+            .roadmap-card {
+                padding: 1.5rem;
             }
             
-            .timeline-dot {
-                left: 20px;
-            }
-            
-            .timeline-content {
-                margin: 0;
-                margin-top: 1rem;
+            .phase-number {
+                top: 1rem;
+                right: 1rem;
             }
         }
     </style>
@@ -692,107 +700,95 @@
                 </p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">1</div>
-                        <h4>Months 1-2: AI IDE Deployment</h4>
-                        <p><strong>What We Did:</strong> Rolled out Windsurf AI IDE to 2,500+ engineers</p>
-                        <ul>
-                            <li>Achieved 90%+ adoption rate within 6 months</li>
-                            <li>Custom integrations with development environment</li>
-                            <li>Automated setup and configuration</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: Every developer became AI-enabled from day one
-                        </p>
+            <div class="roadmap-phases">
+                <!-- Foundation Phase -->
+                <div class="phase-group">
+                    <h3 class="phase-title">🏗️ Foundation Phase</h3>
+                    <div class="phase-cards">
+                        <div class="roadmap-card">
+                            <div class="phase-number">1</div>
+                            <h4>AI IDE Deployment</h4>
+                            <p class="phase-timing">Months 1-2</p>
+                            <ul>
+                                <li>Roll out Windsurf AI IDE</li>
+                                <li>90%+ adoption rate</li>
+                                <li>Automated setup</li>
+                            </ul>
+                            <div class="phase-result">Every developer AI-enabled</div>
+                        </div>
+                        
+                        <div class="roadmap-card">
+                            <div class="phase-number">2</div>
+                            <h4>MCP Gateway</h4>
+                            <p class="phase-timing">Months 3-4</p>
+                            <ul>
+                                <li>Secure, audited gateway</li>
+                                <li>Sub-50ms latency</li>
+                                <li>99.99% availability</li>
+                            </ul>
+                            <div class="phase-result">Enterprise-grade security</div>
+                        </div>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">2</div>
-                        <h4>Months 3-4: Centralized MCP Gateway</h4>
-                        <p><strong>What We Built:</strong> Secure, audited gateway for AI tool access</p>
-                        <ul>
-                            <li>TypeScript-based proxy with full audit logging</li>
-                            <li>Sub-50ms latency overhead</li>
-                            <li>99.99% availability SLA</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: Enterprise-grade security without sacrificing developer experience
-                        </p>
+                <!-- Measurement Phase -->
+                <div class="phase-group">
+                    <h3 class="phase-title">📊 Measurement Phase</h3>
+                    <div class="phase-cards">
+                        <div class="roadmap-card">
+                            <div class="phase-number">3</div>
+                            <h4>AI Observability</h4>
+                            <p class="phase-timing">Months 5-6</p>
+                            <ul>
+                                <li>1M+ daily LLM requests</li>
+                                <li>Token & cost tracking</li>
+                                <li>Productivity metrics</li>
+                            </ul>
+                            <div class="phase-result">Proved ROI with data</div>
+                        </div>
+                        
+                        <div class="roadmap-card">
+                            <div class="phase-number">4</div>
+                            <h4>Agent Orchestration</h4>
+                            <p class="phase-timing">Months 7-8</p>
+                            <ul>
+                                <li>10K+ daily workflows</li>
+                                <li>Slack/CI/CD integration</li>
+                                <li>Self-healing systems</li>
+                            </ul>
+                            <div class="phase-result">Autonomous workflows</div>
+                        </div>
                     </div>
-                    <div class="timeline-dot"></div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">3</div>
-                        <h4>Months 5-6: AI Observability Platform</h4>
-                        <p><strong>What We Created:</strong> Real-time AI impact measurement</p>
-                        <ul>
-                            <li>Processes 1M+ LLM requests daily</li>
-                            <li>Token usage and cost tracking</li>
-                            <li>Productivity metrics and quality indicators</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: Proved ROI to leadership with hard data
-                        </p>
+                <!-- Scale Phase -->
+                <div class="phase-group">
+                    <h3 class="phase-title">🚀 Scale Phase</h3>
+                    <div class="phase-cards">
+                        <div class="roadmap-card">
+                            <div class="phase-number">5</div>
+                            <h4>Work-as-Code</h4>
+                            <p class="phase-timing">Months 9-10</p>
+                            <ul>
+                                <li>500+ micro-MCP servers</li>
+                                <li>Standardized interfaces</li>
+                                <li>40% less context switching</li>
+                            </ul>
+                            <div class="phase-result">AI performs any operation</div>
+                        </div>
+                        
+                        <div class="roadmap-card">
+                            <div class="phase-number">6</div>
+                            <h4>Optimize & Scale</h4>
+                            <p class="phase-timing">Months 11-12</p>
+                            <ul>
+                                <li>50% less boilerplate</li>
+                                <li>30% faster PR reviews</li>
+                                <li>60% lower cost/feature</li>
+                            </ul>
+                            <div class="phase-result">$200M savings, 20x ROI</div>
+                        </div>
                     </div>
-                    <div class="timeline-dot"></div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">4</div>
-                        <h4>Months 7-8: Agent Orchestration (Emux)</h4>
-                        <p><strong>What We Developed:</strong> Engineer Multiplexer platform</p>
-                        <ul>
-                            <li>Handles 10,000+ automated workflows daily</li>
-                            <li>Integrates with Slack, CI/CD, internal systems</li>
-                            <li>Self-healing capabilities</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: Complex multi-step workflows became autonomous
-                        </p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">5</div>
-                        <h4>Months 9-10: Work-as-Code Framework</h4>
-                        <p><strong>What We Transformed:</strong> Manual operations into AI-callable functions</p>
-                        <ul>
-                            <li>Created 500+ micro-MCP servers</li>
-                            <li>Standardized interfaces for operations</li>
-                            <li>40% reduction in context switching</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: AI could perform any engineering operation
-                        </p>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="phase-number">6</div>
-                        <h4>Months 11-12: Scale & Optimize</h4>
-                        <p><strong>What We Achieved:</strong> Enterprise-wide transformation</p>
-                        <ul>
-                            <li>50% reduction in boilerplate code</li>
-                            <li>30% faster PR reviews</li>
-                            <li>60% lower cost per feature</li>
-                        </ul>
-                        <p style="margin-top: 1rem; font-style: italic; color: var(--accent);">
-                            Result: $200M annual savings with 20x ROI
-                        </p>
-                    </div>
-                    <div class="timeline-dot"></div>
                 </div>
             </div>
         </section>
