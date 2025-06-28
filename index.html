@@ -1100,6 +1100,52 @@
             font-weight: 300;
         }
 
+        /* Why Section Background */
+        .why-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-section::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%) rotate(15deg);
+            width: 400px;
+            height: 400px;
+            background-image: url('images/leftshift.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.03;
+            z-index: -1;
+            filter: brightness(2);
+        }
+
+        /* Scale Section Background */
+        .scale-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scale-section::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: -15%;
+            transform: rotate(-20deg);
+            width: 500px;
+            height: 500px;
+            background-image: url('images/leftshift.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.02;
+            z-index: -1;
+            filter: brightness(2) blur(1px);
+        }
+
         /* Feature Icons Grid */
         .feature-icons {
             display: grid;
@@ -1601,7 +1647,7 @@
             </div>
         </section>
         <!-- Our Ideal Partner -->
-        <section id="scale" class="section fade-in-up">
+        <section id="scale" class="section fade-in-up scale-section">
             <h2>The AI-Native <span style="color: #22c55e;">Solution</span></h2>
             <div class="content-card">
                 <p style="font-size: 1.125rem; margin-bottom: 1.5rem;">Scale via OPEX: ~$1,000/engineer/month in AI tools (passthrough pricing from vendors, no markup) vs. $12,000+/month for new hires</p>
@@ -1808,7 +1854,7 @@
         </section>
 
         <!-- Why Left Shift AI -->
-        <section class="section fade-in-up">
+        <section class="section fade-in-up why-section">
             <h2>Why <span class="gradient-text">Left Shift AI</span></h2>
             
             <div class="feature-icons">
