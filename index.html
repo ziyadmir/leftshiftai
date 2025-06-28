@@ -1812,12 +1812,22 @@
         const mobileMenuClose = document.getElementById('mobileMenuClose');
 
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         });
 
         mobileMenuClose.addEventListener('click', () => {
             closeMobileMenu();
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
         });
 
         function closeMobileMenu() {
