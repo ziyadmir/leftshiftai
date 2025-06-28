@@ -162,6 +162,9 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .metric-card {
@@ -261,8 +264,12 @@
         .timeline-item {
             display: flex;
             align-items: center;
+            justify-content: center;
             margin-bottom: 3rem;
             position: relative;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .timeline-item:nth-child(odd) {
@@ -270,13 +277,14 @@
         }
 
         .timeline-content {
-            flex: 1;
+            flex: 0 1 400px;
             padding: 2rem;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             margin: 0 2rem;
             transition: all 0.3s ease;
+            text-align: left;
         }
 
         .timeline-content:hover {
@@ -397,7 +405,10 @@
         /* Implementation Grid */
         .implementation-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .implementation-item {
@@ -621,7 +632,7 @@
                         <h4>Months 9-10: Work-as-Code Framework</h4>
                         <p><strong>What We Transformed:</strong> Manual operations into AI-callable functions</p>
                         <ul>
-                            <li>Created 50+ micro-MCP servers</li>
+                            <li>Created 500+ micro-MCP servers</li>
                             <li>Standardized interfaces for operations</li>
                             <li>40% reduction in context switching</li>
                         </ul>
