@@ -1219,14 +1219,15 @@
         .company-logo-bubble {
             width: 48px;
             height: 48px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .company-logo-bubble:hover {
@@ -1236,16 +1237,14 @@
         }
 
         .company-logo-bubble img {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             object-fit: contain;
-            filter: brightness(0) invert(1);
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .company-logo-bubble:hover img {
-            opacity: 1;
+            transform: scale(1.1);
         }
 
         .linkedin-link {
@@ -1426,14 +1425,14 @@
                             <img src="images/company-logos/google-logo.svg" alt="Google" title="Google">
                         </div>
                         <div class="company-logo-bubble">
-                            <img src="images/company-logos/uber-logo.png" alt="Uber" title="Uber">
+                            <img src="images/company-logos/uber-logo.svg" alt="Uber" title="Uber">
                         </div>
                         <div class="company-logo-bubble">
                             <img src="images/company-logos/quora-logo.svg" alt="Quora" title="Quora">
                         </div>
                     </div>
                     <p class="founder-bio">
-                        Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including YouTube's AI-powered Peak Points advertising system, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
+                        Serial innovator with deep expertise in AI systems at scale. Invented groundbreaking technologies including <a href="https://techcrunch.com/2025/05/14/youtube-viewers-will-start-seeing-ads-after-peak-moments-in-videos/" target="_blank" style="color: var(--accent); text-decoration: none; border-bottom: 1px dotted var(--accent);">YouTube's AI-powered Peak Points advertising system</a>, revolutionizing how billions experience video content. Expert in large-scale ML infrastructure and product development.
                     </p>
                     <a href="https://www.linkedin.com/in/ziyadmir" class="linkedin-link" target="_blank">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -1451,7 +1450,7 @@
                     <p class="founder-role">Partner & General Manager</p>
                     <div class="company-logos">
                         <div class="company-logo-bubble">
-                            <img src="images/company-logos/snap-logo.png" alt="Snap" title="Snap">
+                            <img src="images/company-logos/snap-logo.svg" alt="Snap" title="Snap">
                         </div>
                         <div class="company-logo-bubble">
                             <img src="images/company-logos/aws-logo.svg" alt="AWS" title="AWS">
@@ -1482,7 +1481,7 @@
                             <img src="images/company-logos/janestreet-logo.png" alt="Jane Street" title="Jane Street">
                         </div>
                         <div class="company-logo-bubble">
-                            <img src="images/company-logos/character-logo.png" alt="Character.AI" title="Character.AI">
+                            <img src="images/company-logos/shopify-logo.svg" alt="Shopify" title="Shopify">
                         </div>
                         <div class="company-logo-bubble">
                             <img src="images/company-logos/google-logo.svg" alt="Google" title="Google">
